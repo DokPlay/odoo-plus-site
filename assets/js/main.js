@@ -6,6 +6,15 @@ import {
   services,
   siteLinks
 } from "../../data/modules.js";
+import {
+  defaultLanguage,
+  faqTranslations,
+  itemTranslations,
+  languageStorageKey,
+  russianTimeZones,
+  supportedLanguages,
+  uiText
+} from "../../data/i18n.js";
 
 const allCatalogItems = [
   ...freeModules,
@@ -18,16 +27,11 @@ const catalogGrid = document.querySelector("#catalogGrid");
 const catalogCount = document.querySelector("#catalogCount");
 const tabs = [...document.querySelectorAll(".tab")];
 const dialog = document.querySelector("#moduleDialog");
-const filterLabels = {
-  all: "All",
-  free: "Free",
-  pro: "Pro",
-  service: "Services",
-  roadmap: "Roadmap"
-};
+const languageButtons = [...document.querySelectorAll("[data-language-option]")];
 
 let currentFilter = "all";
 let renderedItems = [];
+let currentLanguage = resolveInitialLanguage();
 
 const escapeHtml = (value) =>
   String(value)
@@ -43,6 +47,64 @@ const badgeClass = (type) => {
   if (type === "service") return "badge-service";
   return "badge-roadmap";
 };
+
+function getNestedText(key) {
+  return uiText[currentLanguage]?.[key] ?? uiText[defaultLanguage]?.[key] ?? key;
+}
+
+function getFilterLabel(filter) {
+  const key = filter === "service" ? "catalog.service" : `catalog.${filter}`;
+  return getNestedText(key);
+}
+
+function normalizeLanguage(language) {
+  if (!language) return null;
+  const normalized = String(language).toLowerCase().split("-")[0];
+  return supportedLanguages.includes(normalized) ? normalized : null;
+}
+
+function languageFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return normalizeLanguage(params.get("lang"));
+}
+
+function languageFromStorage() {
+  try {
+    return normalizeLanguage(window.localStorage.getItem(languageStorageKey));
+  } catch {
+    return null;
+  }
+}
+
+function browserLooksRussian() {
+  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  const hasRussianLanguage = languages.some((language) => /^ru\b/i.test(language));
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return hasRussianLanguage || russianTimeZones.includes(timeZone);
+}
+
+function resolveInitialLanguage() {
+  return languageFromQuery() || languageFromStorage() || (browserLooksRussian() ? "ru" : defaultLanguage);
+}
+
+function saveLanguage(language) {
+  try {
+    window.localStorage.setItem(languageStorageKey, language);
+  } catch {
+    // Private browsing or blocked storage should not break language switching.
+  }
+}
+
+function localizeItem(item) {
+  return {
+    ...item,
+    ...(itemTranslations[currentLanguage]?.[item.technicalName] ?? {})
+  };
+}
+
+function localizedFaqItems() {
+  return faqTranslations[currentLanguage] ?? faqItems;
+}
 
 function setConfiguredLinks() {
   document.querySelectorAll("[data-site-link]").forEach((link) => {
@@ -78,17 +140,17 @@ function cardTemplate(item, index) {
       <p>${escapeHtml(item.description)}</p>
       <dl class="card-meta">
         <div>
-          <dt>Version</dt>
+          <dt>${escapeHtml(getNestedText("catalog.version"))}</dt>
           <dd>${escapeHtml(item.version)}</dd>
         </div>
         <div>
-          <dt>Price</dt>
+          <dt>${escapeHtml(getNestedText("catalog.price"))}</dt>
           <dd>${escapeHtml(item.price)}</dd>
         </div>
       </dl>
       <div class="card-actions">
         ${ctaMarkup(item)}
-        <button class="details-button" type="button" data-details-index="${index}">Details</button>
+        <button class="details-button" type="button" data-details-index="${index}">${escapeHtml(getNestedText("catalog.details"))}</button>
       </div>
     </article>
   `;
@@ -96,9 +158,9 @@ function cardTemplate(item, index) {
 
 function renderCatalog(filter = currentFilter) {
   currentFilter = filter;
-  renderedItems = allCatalogItems.filter((item) => itemMatchesFilter(item, filter));
+  renderedItems = allCatalogItems.filter((item) => itemMatchesFilter(item, filter)).map(localizeItem);
   catalogGrid.innerHTML = renderedItems.map(cardTemplate).join("");
-  catalogCount.textContent = `${filterLabels[filter]}: ${renderedItems.length} cards`;
+  catalogCount.textContent = `${getFilterLabel(filter)}: ${renderedItems.length} ${getNestedText("catalog.cards")}`;
 }
 
 function setActiveFilter(filter) {
@@ -112,7 +174,7 @@ function setActiveFilter(filter) {
 
 function renderFaq() {
   const faqList = document.querySelector("#faqList");
-  faqList.innerHTML = faqItems
+  faqList.innerHTML = localizedFaqItems()
     .map(
       (item) => `
         <details>
@@ -136,7 +198,7 @@ function openDetails(item) {
   dialog.querySelector("#dialogDetails").textContent = item.details;
   dialog.querySelector("#dialogActions").innerHTML = `
     ${ctaMarkup(item)}
-    <button class="details-button js-dialog-close" type="button">Close</button>
+    <button class="details-button js-dialog-close" type="button">${escapeHtml(getNestedText("dialog.close"))}</button>
   `;
 
   if (typeof dialog.showModal === "function") {
@@ -146,9 +208,64 @@ function openDetails(item) {
   }
 }
 
+function applyStaticTranslations() {
+  document.documentElement.lang = currentLanguage;
+  document.title = getNestedText("meta.title");
+
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.content = getNestedText("meta.description");
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = getNestedText("meta.title");
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) ogDescription.content = getNestedText("meta.ogDescription");
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = getNestedText(element.dataset.i18n);
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", getNestedText(element.dataset.i18nAriaLabel));
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    element.setAttribute("alt", getNestedText(element.dataset.i18nAlt));
+  });
+
+  document.querySelectorAll("[data-i18n-src-en]").forEach((element) => {
+    const languageKey = `i18nSrc${currentLanguage[0].toUpperCase()}${currentLanguage.slice(1)}`;
+    const localizedSource = element.dataset[languageKey] ?? element.dataset.i18nSrcEn;
+    if (localizedSource) element.setAttribute("src", localizedSource);
+  });
+
+  languageButtons.forEach((button) => {
+    const isActive = button.dataset.languageOption === currentLanguage;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+function setLanguage(language, persist = true) {
+  const normalized = normalizeLanguage(language) ?? defaultLanguage;
+  currentLanguage = normalized;
+  if (persist) saveLanguage(normalized);
+  applyStaticTranslations();
+  renderFaq();
+  renderCatalog(currentFilter);
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", normalized);
+  window.history.replaceState({}, "", url);
+}
+
 function bindEvents() {
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => setActiveFilter(tab.dataset.filter));
+  });
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.languageOption));
   });
 
   document.querySelectorAll("[data-filter-link]").forEach((link) => {
@@ -176,6 +293,7 @@ function bindEvents() {
 }
 
 setConfiguredLinks();
+applyStaticTranslations();
 renderFaq();
 renderCatalog();
 bindEvents();

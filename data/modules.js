@@ -1,5 +1,5 @@
 export const siteLinks = {
-  githubFreeModules: "https://github.com/DokPlay/odoo-community-plus-addons",
+  githubFreeModules: "https://github.com/DokPlay/odoo-plus-site",
   boostyProfile: "https://boosty.to/example",
   email: "mailto:your-email@example.com",
   linkedin: "https://www.linkedin.com/in/example-profile",
@@ -7,8 +7,7 @@ export const siteLinks = {
   siteUrl: "https://dokplay.github.io/odoo-plus-site/"
 };
 
-const githubModuleUrl = (technicalName) =>
-  `${siteLinks.githubFreeModules}/tree/19.0/${technicalName}`;
+const githubModuleUrl = () => siteLinks.githubFreeModules;
 
 const boostyPostUrl = (slug) =>
   `https://boosty.to/example/posts/${slug}-placeholder`;

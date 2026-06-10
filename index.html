@@ -27,45 +27,51 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Community Plus Addons home">
+      <a class="brand" href="#top" aria-label="Community Plus Addons home" data-i18n-aria-label="brand.aria">
         <span class="brand-mark" aria-hidden="true">CP</span>
         <span class="brand-text">Community Plus Addons</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#modules">Modules</a>
-        <a href="#services">Services</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.aria">
+        <a href="#modules" data-i18n="nav.modules">Modules</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <a class="header-action" data-site-link="githubFreeModules" href="https://github.com/DokPlay/odoo-community-plus-addons">
-        GitHub
-      </a>
+      <div class="header-controls">
+        <div class="language-switcher" aria-label="Language selector" data-i18n-aria-label="language.aria">
+          <button class="language-button" type="button" data-language-option="en" data-i18n="language.en">EN</button>
+          <button class="language-button" type="button" data-language-option="ru" data-i18n="language.ru">RU</button>
+        </div>
+        <a class="header-action" data-site-link="githubFreeModules" href="https://github.com/DokPlay/odoo-community-plus-addons" data-i18n="nav.github">
+          GitHub
+        </a>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero section-band">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <h1>Custom Addons for Odoo 19 Community</h1>
-            <p class="hero-subtitle">Free open-source modules, Pro add-ons and custom setup for stable Odoo installations.</p>
-            <p class="hero-body">
+            <h1 data-i18n="hero.title">Custom Addons for Odoo 19 Community</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Free open-source modules, Pro add-ons and custom setup for stable Odoo installations.</p>
+            <p class="hero-body" data-i18n="hero.body">
               Built for developers, integrators and small businesses that need practical Odoo improvements without unnecessary complexity.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="button button-primary" data-site-link="githubFreeModules" href="https://github.com/DokPlay/odoo-community-plus-addons">
+              <a class="button button-primary" href="#modules" data-filter-link="free" data-i18n="hero.freeCta">
                 View Free Modules
               </a>
-              <a class="button button-secondary" href="#modules" data-filter-link="pro">Explore Pro Modules</a>
-              <a class="button button-ghost" data-site-link="email" href="mailto:your-email@example.com">Request Custom Setup</a>
+              <a class="button button-secondary" href="#modules" data-filter-link="pro" data-i18n="hero.proCta">Explore Pro Modules</a>
+              <a class="button button-ghost" data-site-link="email" href="mailto:your-email@example.com" data-i18n="hero.setupCta">Request Custom Setup</a>
             </div>
-            <div class="support-line" aria-label="Version support summary">
-              <span>Main supported version: Odoo 19.0 Community</span>
-              <span>17.0 and 18.0 by request</span>
-              <span>16.0 legacy only after review</span>
+            <div class="support-line" aria-label="Version support summary" data-i18n-aria-label="hero.supportAria">
+              <span data-i18n="hero.supportMain">Main supported version: Odoo 19.0 Community</span>
+              <span data-i18n="hero.supportRequest">17.0 and 18.0 by request</span>
+              <span data-i18n="hero.supportLegacy">16.0 legacy only after review</span>
             </div>
           </div>
-          <div class="hero-media" aria-label="Project preview">
-            <img src="./assets/img/hero-preview.png" alt="Preview card for Odoo 19 Free and Pro addons with GitHub and Boosty links" />
+          <div class="hero-media" aria-label="Project preview" data-i18n-aria-label="hero.mediaAria">
+            <img src="./assets/img/hero-preview.png" data-i18n-src-en="./assets/img/hero-preview.png" data-i18n-src-ru="./assets/img/hero-preview-ru.png" alt="Preview card for Odoo 19 Free and Pro addons with GitHub and Boosty links" data-i18n-alt="hero.mediaAlt" />
           </div>
         </div>
       </section>
@@ -73,30 +79,30 @@
       <section class="section-wrap" aria-labelledby="featured-title">
         <div class="container">
           <div class="section-heading">
-            <h2 id="featured-title">Featured Modules</h2>
-            <p>Start with open-source utilities, then add paid Pro workflows only when the business case is clear.</p>
+            <h2 id="featured-title" data-i18n="featured.title">Featured Modules</h2>
+            <p data-i18n="featured.body">Start with open-source utilities, then add paid Pro workflows only when the business case is clear.</p>
           </div>
           <div class="featured-grid">
             <article class="featured-card">
-              <img src="./assets/img/module-health.png" alt="Module Health Checker interface preview" />
+              <img src="./assets/img/module-health.png" data-i18n-src-en="./assets/img/module-health.png" data-i18n-src-ru="./assets/img/module-health-ru.png" alt="Module Health Checker interface preview" data-i18n-alt="featured.healthAlt" />
               <div class="featured-copy">
-                <span class="badge badge-free">Free</span>
-                <h3>Module Health Checker</h3>
-                <p>Check installed modules, metadata, licenses and dependency issues in Odoo 19 Community.</p>
+                <span class="badge badge-free" data-i18n="featured.healthBadge">Free</span>
+                <h3 data-i18n="featured.healthTitle">Module Health Checker</h3>
+                <p data-i18n="featured.healthText">Check installed modules, metadata, licenses and dependency issues in Odoo 19 Community.</p>
               </div>
             </article>
             <article class="featured-card">
-              <img src="./assets/img/dashboard-pro.png" alt="Dashboard Pro analytics preview" />
+              <img src="./assets/img/dashboard-pro.png" data-i18n-src-en="./assets/img/dashboard-pro.png" data-i18n-src-ru="./assets/img/dashboard-pro-ru.png" alt="Dashboard Pro analytics preview" data-i18n-alt="featured.dashboardAlt" />
               <div class="featured-copy">
-                <span class="badge badge-pro">Pro roadmap</span>
-                <h3>Dashboard Pro</h3>
-                <p>Clean sales, invoices and inventory dashboards planned for paid Boosty access.</p>
+                <span class="badge badge-pro" data-i18n="featured.dashboardBadge">Pro roadmap</span>
+                <h3 data-i18n="featured.dashboardTitle">Dashboard Pro</h3>
+                <p data-i18n="featured.dashboardText">Clean sales, invoices and inventory dashboards planned for paid Boosty access.</p>
               </div>
             </article>
             <article class="featured-card featured-text-card">
-              <span class="badge badge-service">Service</span>
-              <h3>Custom Setup</h3>
-              <p>Installation, configuration, report development and private modules for real database workflows.</p>
+              <span class="badge badge-service" data-i18n="featured.serviceBadge">Service</span>
+              <h3 data-i18n="featured.serviceTitle">Custom Setup</h3>
+              <p data-i18n="featured.serviceText">Installation, configuration, report development and private modules for real database workflows.</p>
             </article>
           </div>
         </div>
@@ -105,30 +111,30 @@
       <section class="service-band" id="services" aria-labelledby="services-title">
         <div class="container service-grid">
           <div>
-            <h2 id="services-title">Custom Odoo Setup &amp; Module Development</h2>
-            <p class="service-lead">
+            <h2 id="services-title" data-i18n="services.title">Custom Odoo Setup &amp; Module Development</h2>
+            <p class="service-lead" data-i18n="services.lead">
               Need a custom report, private workflow, migration check or module adaptation?
             </p>
-            <p>
+            <p data-i18n="services.body">
               We develop and customize addons for Odoo 17.0, 18.0 and 19.0. Legacy Odoo 16.0 work is available only by request and after technical review.
             </p>
             <div class="service-actions">
-              <a class="button button-primary" data-site-link="email" href="mailto:your-email@example.com">Contact by email</a>
-              <a class="button button-secondary" data-site-link="linkedin" href="https://www.linkedin.com/in/example-profile">LinkedIn placeholder</a>
+              <a class="button button-primary" data-site-link="email" href="mailto:your-email@example.com" data-i18n="services.emailCta">Contact by email</a>
+              <a class="button button-secondary" data-site-link="linkedin" href="https://www.linkedin.com/in/example-profile" data-i18n="services.linkedinCta">LinkedIn placeholder</a>
             </div>
           </div>
-          <div class="service-list" aria-label="Available service categories">
+          <div class="service-list" aria-label="Available service categories" data-i18n-aria-label="services.listAria">
             <div>
-              <strong>Custom module development</strong>
-              <span>Private Odoo modules for your business workflow.</span>
+              <strong data-i18n="services.customTitle">Custom module development</strong>
+              <span data-i18n="services.customText">Private Odoo modules for your business workflow.</span>
             </div>
             <div>
-              <strong>Odoo setup</strong>
-              <span>Installation and configuration for stable environments.</span>
+              <strong data-i18n="services.setupTitle">Odoo setup</strong>
+              <span data-i18n="services.setupText">Installation and configuration for stable environments.</span>
             </div>
             <div>
-              <strong>Migration check</strong>
-              <span>Technical review before upgrading or moving a database.</span>
+              <strong data-i18n="services.migrationTitle">Migration check</strong>
+              <span data-i18n="services.migrationText">Technical review before upgrading or moving a database.</span>
             </div>
           </div>
         </div>
@@ -138,29 +144,29 @@
         <div class="container">
           <div class="section-heading section-heading-wide">
             <div>
-              <h2 id="modules-title">Module Catalog</h2>
-              <p>Filter Free, Pro, Services and Roadmap cards without reloading the page.</p>
+              <h2 id="modules-title" data-i18n="catalog.title">Module Catalog</h2>
+              <p data-i18n="catalog.body">Filter Free, Pro, Services and Roadmap cards without reloading the page.</p>
             </div>
-            <a class="text-link" data-site-link="boostyProfile" href="https://boosty.to/example">Boosty profile placeholder</a>
+            <a class="text-link" data-site-link="boostyProfile" href="https://boosty.to/example" data-i18n="catalog.boosty">Boosty profile placeholder</a>
           </div>
 
-          <div class="tabs" role="tablist" aria-label="Catalog filters">
-            <button class="tab is-active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="free">Free</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="pro">Pro</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="service">Services</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="roadmap">Roadmap</button>
+          <div class="tabs" role="tablist" aria-label="Catalog filters" data-i18n-aria-label="catalog.filtersAria">
+            <button class="tab is-active" type="button" role="tab" aria-selected="true" data-filter="all" data-i18n="catalog.all">All</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="free" data-i18n="catalog.free">Free</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="pro" data-i18n="catalog.pro">Pro</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="service" data-i18n="catalog.service">Services</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-filter="roadmap" data-i18n="catalog.roadmap">Roadmap</button>
           </div>
 
           <p class="catalog-count" id="catalogCount" aria-live="polite"></p>
           <div class="catalog-grid" id="catalogGrid"></div>
 
           <div class="paid-note">
-            <h3>Paid modules note</h3>
-            <p>
+            <h3 data-i18n="catalog.paidNoteTitle">Paid modules note</h3>
+            <p data-i18n="catalog.paidNoteBody">
               Pro modules are distributed through separate paid access links. Each module should point to its own Boosty post with the module archive, installation guide, changelog and support notes.
             </p>
-            <p>No payment secrets or private source code are stored on this GitHub Pages website.</p>
+            <p data-i18n="catalog.paidNoteSecurity">No payment secrets or private source code are stored on this GitHub Pages website.</p>
           </div>
         </div>
       </section>
@@ -168,13 +174,13 @@
       <section class="roadmap-band" id="roadmap" aria-labelledby="roadmap-title">
         <div class="container roadmap-layout">
           <div>
-            <h2 id="roadmap-title">Roadmap</h2>
-            <p>First stage: publish the website, keep all module cards visible, then replace placeholders as Free and Pro releases become ready.</p>
+            <h2 id="roadmap-title" data-i18n="roadmap.title">Roadmap</h2>
+            <p data-i18n="roadmap.body">First stage: publish the website, keep all module cards visible, then replace placeholders as Free and Pro releases become ready.</p>
           </div>
           <ol class="roadmap-steps">
-            <li><span>Ready</span> Module Health Checker and site launch</li>
-            <li><span>Next</span> More Free utilities for reports, exports and reminders</li>
-            <li><span>Later</span> Pro dashboards, connectors and migration tooling</li>
+            <li><span data-i18n="roadmap.ready">Ready</span> <span data-i18n="roadmap.readyText">Module Health Checker and site launch</span></li>
+            <li><span data-i18n="roadmap.next">Next</span> <span data-i18n="roadmap.nextText">More Free utilities for reports, exports and reminders</span></li>
+            <li><span data-i18n="roadmap.later">Later</span> <span data-i18n="roadmap.laterText">Pro dashboards, connectors and migration tooling</span></li>
           </ol>
         </div>
       </section>
@@ -182,17 +188,17 @@
       <section class="section-wrap" aria-labelledby="faq-title">
         <div class="container faq-grid">
           <div class="section-heading faq-heading">
-            <h2 id="faq-title">FAQ</h2>
-            <p>Short answers for installation, version support, payment links and project independence.</p>
+            <h2 id="faq-title" data-i18n="faq.title">FAQ</h2>
+            <p data-i18n="faq.body">Short answers for installation, version support, payment links and project independence.</p>
           </div>
           <div class="faq-list" id="faqList"></div>
         </div>
       </section>
 
-      <section class="legal-band" aria-label="Legal disclaimer">
+      <section class="legal-band" aria-label="Legal disclaimer" data-i18n-aria-label="legal.aria">
         <div class="container legal-layout">
-          <strong>This project is not affiliated with Odoo S.A.</strong>
-          <span>Odoo is a trademark of Odoo S.A. All modules are independently developed for Odoo Community Edition.</span>
+          <strong data-i18n="legal.title">This project is not affiliated with Odoo S.A.</strong>
+          <span data-i18n="legal.body">Odoo is a trademark of Odoo S.A. All modules are independently developed for Odoo Community Edition.</span>
         </div>
       </section>
     </main>
@@ -200,46 +206,46 @@
     <footer class="site-footer" id="contact">
       <div class="container footer-grid">
         <div>
-          <a class="brand footer-brand" href="#top" aria-label="Community Plus Addons home">
+          <a class="brand footer-brand" href="#top" aria-label="Community Plus Addons home" data-i18n-aria-label="brand.aria">
             <span class="brand-mark" aria-hidden="true">CP</span>
             <span class="brand-text">Community Plus Addons</span>
           </a>
-          <p>Independent custom addons, setup services and Pro roadmap for Odoo Community Edition.</p>
+          <p data-i18n="footer.body">Independent custom addons, setup services and Pro roadmap for Odoo Community Edition.</p>
         </div>
         <div class="footer-links">
-          <a data-site-link="githubFreeModules" href="https://github.com/DokPlay/odoo-community-plus-addons">GitHub free modules</a>
-          <a data-site-link="boostyProfile" href="https://boosty.to/example">Boosty placeholder</a>
+          <a data-site-link="githubFreeModules" href="https://github.com/DokPlay/odoo-community-plus-addons" data-i18n="footer.github">GitHub free modules</a>
+          <a data-site-link="boostyProfile" href="https://boosty.to/example" data-i18n="footer.boosty">Boosty placeholder</a>
           <a data-site-link="email" href="mailto:your-email@example.com">your-email@example.com</a>
-          <a data-site-link="linkedin" href="https://www.linkedin.com/in/example-profile">LinkedIn placeholder</a>
+          <a data-site-link="linkedin" href="https://www.linkedin.com/in/example-profile" data-i18n="footer.linkedin">LinkedIn placeholder</a>
         </div>
         <div class="footer-note">
-          <span>Static GitHub Pages site.</span>
-          <span>No backend payment logic, tokens, private keys or paid ZIP files are stored here.</span>
+          <span data-i18n="footer.static">Static GitHub Pages site.</span>
+          <span data-i18n="footer.security">No backend payment logic, tokens, private keys or paid ZIP files are stored here.</span>
         </div>
       </div>
     </footer>
 
     <dialog class="module-dialog" id="moduleDialog" aria-labelledby="dialogTitle">
-      <button class="dialog-close js-dialog-close" type="button" aria-label="Close details"></button>
+      <button class="dialog-close js-dialog-close" type="button" aria-label="Close details" data-i18n-aria-label="dialog.closeAria"></button>
       <div class="dialog-body">
         <span class="badge" id="dialogBadge"></span>
         <h2 id="dialogTitle"></h2>
         <p id="dialogDescription"></p>
         <dl class="dialog-meta">
           <div>
-            <dt>Technical name</dt>
+            <dt data-i18n="dialog.technicalName">Technical name</dt>
             <dd id="dialogTechName"></dd>
           </div>
           <div>
-            <dt>Version</dt>
+            <dt data-i18n="dialog.version">Version</dt>
             <dd id="dialogVersion"></dd>
           </div>
           <div>
-            <dt>Status</dt>
+            <dt data-i18n="dialog.status">Status</dt>
             <dd id="dialogStatus"></dd>
           </div>
           <div>
-            <dt>Price</dt>
+            <dt data-i18n="dialog.price">Price</dt>
             <dd id="dialogPrice"></dd>
           </div>
         </dl>
