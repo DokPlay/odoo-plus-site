@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260610-pro-details";
+} from "../../data/modules.js?v=20260610-clean-copy";
 import {
   defaultLanguage,
   faqTranslations,
@@ -14,7 +14,7 @@ import {
   russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260610-pro-details";
+} from "../../data/i18n.js?v=20260610-clean-copy";
 
 const allCatalogItems = [
   ...freeModules,
