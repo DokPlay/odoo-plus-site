@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260611-health-pro-boosty";
+} from "../../data/modules.js?v=20260611-catalog-images";
 import {
   defaultLanguage,
   faqTranslations,
@@ -14,7 +14,7 @@ import {
   russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260611-health-pro-boosty";
+} from "../../data/i18n.js?v=20260611-catalog-images";
 
 const allCatalogItems = [
   ...freeModules,
@@ -129,14 +129,18 @@ function ctaMarkup(item) {
   return `<a class="card-cta" href="${escapeHtml(item.ctaUrl)}"${target}>${escapeHtml(item.ctaLabel)}</a>`;
 }
 
+function catalogImagePath(item) {
+  const languageSuffix = currentLanguage === "ru" ? "-ru" : "";
+  return `./assets/img/catalog/${item.technicalName}${languageSuffix}.png`;
+}
+
 function cardImageMarkup(item) {
-  if (!item.image) return "";
-  return `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt ?? item.title)}" loading="lazy">`;
+  return `<img class="card-image" src="${escapeHtml(item.image ?? catalogImagePath(item))}" alt="${escapeHtml(item.imageAlt ?? `${item.title} preview`)}" loading="lazy">`;
 }
 
 function cardTemplate(item, index) {
   return `
-    <article class="catalog-card catalog-card-${escapeHtml(item.type)}${item.image ? " catalog-card-with-image" : ""}">
+    <article class="catalog-card catalog-card-${escapeHtml(item.type)} catalog-card-with-image">
       ${cardImageMarkup(item)}
       <div class="card-topline">
         <span class="badge ${badgeClass(item.type)}">${escapeHtml(item.badge)}</span>

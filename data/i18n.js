@@ -326,9 +326,7 @@ export const itemTranslations = {
       description: "Расширенный аудит модулей: XML, Python API, миграция и PDF-отчеты.",
       details:
         "Планируемое Pro-расширение для глубокой проверки модулей: расширенная проверка XML-представлений, поиск устаревших Python API, подсказки готовности к миграции и выгружаемые PDF-отчеты аудита.",
-      ctaLabel: "Скоро",
-      image: "./assets/img/module-health-pro-ru.png",
-      imageAlt: "Превью Проверка модулей Pro"
+      ctaLabel: "Скоро"
     },
     cp_dashboard_pro: {
       title: "Панель управления Pro",

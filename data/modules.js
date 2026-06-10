@@ -178,8 +178,6 @@ export const proModules = [
       "Planned Pro extension for deeper module health work: advanced XML view checks, deprecated Python API scanning, migration readiness hints and exportable PDF audit reports.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("module-health-checker-pro"),
-    image: "./assets/img/module-health-pro.png",
-    imageAlt: "Module Health Checker Pro preview",
     disabled: true
   },
   {
