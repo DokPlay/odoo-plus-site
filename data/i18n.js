@@ -325,7 +325,7 @@ export const itemTranslations = {
       price: "$79",
       description: "Аккуратные панели продаж, счетов и склада для Odoo 19 Community.",
       details:
-        "Планируемый платный модуль. Доступ будет открыт на Boosty, когда релиз будет готов.",
+        "KPI-панели по продажам, счетам и складу для ежедневного контроля, с компактными графиками и быстрыми операционными сводками.",
       ctaLabel: "Скоро"
     },
     cp_access_manager_pro: {
@@ -335,7 +335,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$129",
       description: "Практичные инструменты ревью прав доступа для администраторов и интеграторов.",
-      details: "Планируемый платный модуль для более понятного ревью и обслуживания прав доступа.",
+      details: "Инструменты ревью прав для пользователей, групп, чувствительных меню и конфликтов доступа в одном рабочем месте администратора.",
       ctaLabel: "Скоро"
     },
     cp_accounting_reports_pro: {
@@ -345,7 +345,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$99",
       description: "Дополнительные бухгалтерские отчеты для установок Odoo Community.",
-      details: "Планируемый платный отчетный модуль для бизнесов, которым нужны более понятные финансовые сводки.",
+      details: "Дополнительные финансовые сводки по счетам, дебиторке, кредиторке и проверке периода в Odoo Community.",
       ctaLabel: "Скоро"
     },
     cp_import_wizard_pro: {
@@ -355,7 +355,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$69",
       description: "Пошаговые импорты с безопасными проверками перед попаданием данных в production.",
-      details: "Планируемый платный модуль для подготовки импортов, проверок и операторских подсказок.",
+      details: "Пошаговые CSV и XLSX-импорты с предпросмотром, подсказками валидации и более безопасными действиями оператора перед загрузкой данных.",
       ctaLabel: "Скоро"
     },
     cp_migration_assistant_pro: {
@@ -365,7 +365,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$109",
       description: "Проверка готовности перед обновлением или переносом базы Odoo.",
-      details: "Планируемый платный модуль для технических сигналов ревью. Реальные миграции требуют отдельного анализа проекта.",
+      details: "Проверки готовности модулей, зависимостей и рискованных записей перед обновлением или переносом базы.",
       ctaLabel: "Скоро"
     },
     cp_woo_connector_pro: {
@@ -374,8 +374,8 @@ export const itemTranslations = {
       badge: "Pro",
       version: "Odoo 19.0 Community",
       price: "$399",
-      description: "Roadmap коннектора для WooCommerce и процессов Odoo Community.",
-      details: "Планируемый платный коннектор. Финальный scope нужно подтвердить по реальным требованиям магазина.",
+      description: "Коннектор WooCommerce и Odoo Community для операционной работы магазина.",
+      details: "Инструменты синхронизации заказов, клиентов, товаров и остатков WooCommerce с рабочими процессами Odoo.",
       ctaLabel: "Скоро"
     },
     cp_shopify_connector_pro: {
@@ -384,8 +384,8 @@ export const itemTranslations = {
       badge: "Pro",
       version: "Odoo 19.0 Community",
       price: "$189",
-      description: "Roadmap коннектора для Shopify-магазинов и операций Odoo Community.",
-      details: "Планируемый платный коннектор с финальным scope под реальные процессы магазина и каталога.",
+      description: "Коннектор Shopify и Odoo Community для операционной работы магазина.",
+      details: "Инструменты для каталога, заказов и остатков Shopify с практичным операционным контролем внутри Odoo.",
       ctaLabel: "Скоро"
     },
     cp_inventory_barcode_pro: {
@@ -395,7 +395,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$45",
       description: "Складские процессы со штрихкодами для операционной работы.",
-      details: "Планируемый платный модуль для практичных сценариев сканирования на складе в Community.",
+      details: "Сканирование при приемке, подборе и проверке остатков для команд, которым нужны более быстрые складские операции.",
       ctaLabel: "Скоро"
     },
     cp_purchase_approval_pro: {
@@ -405,7 +405,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$69",
       description: "Этапы согласования закупок для небольших команд с понятным контролем.",
-      details: "Планируемый платный процесс согласования закупок и ответственности.",
+      details: "Этапы согласования закупок с отслеживанием ответственности для команд, которым нужен контроль перед подтверждением заказов.",
       ctaLabel: "Скоро"
     },
     cp_recurring_invoice_pro: {
@@ -415,7 +415,7 @@ export const itemTranslations = {
       version: "Odoo 19.0 Community",
       price: "$79",
       description: "Поддержка повторных счетов для предсказуемого регулярного биллинга.",
-      details: "Планируемый платный модуль для сценариев регулярного выставления счетов в Odoo Community Edition.",
+      details: "Помощники для повторных счетов, продлений и регулярных сценариев выставления счетов клиентам.",
       ctaLabel: "Скоро"
     },
     custom_module_development: {

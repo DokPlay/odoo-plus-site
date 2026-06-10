@@ -169,7 +169,7 @@ export const proModules = [
     price: "$79",
     description: "Clean sales, invoices and inventory dashboards for Odoo 19 Community.",
     details:
-      "Planned paid module. Access will be available on Boosty when the release is ready.",
+      "Sales, invoice and inventory KPI panels for daily management, with compact charts and quick operational summaries.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("dashboard-pro"),
     disabled: true
@@ -183,7 +183,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$129",
     description: "Practical access-control review tools for administrators and integrators.",
-    details: "Planned paid module for clearer access review and permission maintenance workflows.",
+    details: "Access review tools for users, groups, sensitive menus and permission conflicts in one administrator workspace.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("access-manager-pro"),
     disabled: true
@@ -197,7 +197,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$99",
     description: "Additional accounting report views for Odoo Community installations.",
-    details: "Planned paid reporting module for businesses that need clearer accounting-oriented summaries.",
+    details: "Extra financial summaries for invoices, receivables, payables and period review in Odoo Community installations.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("accounting-reports-pro"),
     disabled: true
@@ -211,7 +211,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$69",
     description: "Guided imports with safer review steps before data reaches production.",
-    details: "Planned paid module for structured import preparation, checks and operator guidance.",
+    details: "Guided CSV and XLSX imports with preview, validation hints and safer operator steps before loading production data.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("import-wizard-pro"),
     disabled: true
@@ -225,7 +225,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$109",
     description: "Migration readiness review before upgrading or moving an Odoo database.",
-    details: "Planned paid module for technical review signals. Real migrations still require careful project-specific analysis.",
+    details: "Readiness checks for modules, dependencies and risky records before upgrades or database moves.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("migration-assistant-pro"),
     disabled: true
@@ -238,8 +238,8 @@ export const proModules = [
     badge: "Pro",
     version: "Odoo 19.0 Community",
     price: "$399",
-    description: "Connector roadmap for WooCommerce and Odoo Community workflows.",
-    details: "Planned paid connector. Final scope should be confirmed against real store requirements before release.",
+    description: "WooCommerce and Odoo Community connector for store operations.",
+    details: "Sync tools for WooCommerce orders, customers, products and stock visibility in Odoo workflows.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("woo-connector-pro"),
     disabled: true
@@ -252,8 +252,8 @@ export const proModules = [
     badge: "Pro",
     version: "Odoo 19.0 Community",
     price: "$189",
-    description: "Connector roadmap for Shopify stores and Odoo Community operations.",
-    details: "Planned paid connector with final scope reserved for concrete store and catalog workflows.",
+    description: "Shopify and Odoo Community connector for store operations.",
+    details: "Store connector tools for Shopify catalog, order and stock workflows with practical operational review inside Odoo.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("shopify-connector-pro"),
     disabled: true
@@ -267,7 +267,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$45",
     description: "Barcode-assisted inventory workflows for warehouse operations.",
-    details: "Planned paid module for practical inventory scanning flows in Community installations.",
+    details: "Barcode-assisted receiving, picking and stock checks for teams that need faster warehouse operations.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("inventory-barcode-pro"),
     disabled: true
@@ -281,7 +281,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$69",
     description: "Purchase approval steps for small teams that need clearer control.",
-    details: "Planned paid approval workflow for purchase operations and accountability.",
+    details: "Purchase approval steps with responsibility tracking for small teams that need clearer control before confirming orders.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("purchase-approval-pro"),
     disabled: true
@@ -295,7 +295,7 @@ export const proModules = [
     version: "Odoo 19.0 Community",
     price: "$79",
     description: "Recurring invoice support for predictable repeat billing workflows.",
-    details: "Planned paid module for repeat billing scenarios in Odoo Community Edition.",
+    details: "Recurring invoice helpers for repeat billing, renewal follow-up and predictable customer invoicing routines.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("recurring-invoice-pro"),
     disabled: true
