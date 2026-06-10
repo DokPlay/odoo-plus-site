@@ -1,5 +1,6 @@
 export const siteLinks = {
-  githubFreeModules: "https://github.com/DokPlay/odoo-plus-site",
+  githubFreeModules: "https://github.com/DokPlay/odoo-community-plus-addons",
+  githubModuleHealthChecker: "https://github.com/DokPlay/odoo-community-plus-addons/tree/19/cp_module_health_checker",
   boostyProfile: "https://boosty.to/example",
   email: "mailto:serrggeejjj@gmail.com",
   linkedin: "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/",
@@ -7,7 +8,12 @@ export const siteLinks = {
   siteUrl: "https://odoocustom.online/"
 };
 
-const githubModuleUrl = () => siteLinks.githubFreeModules;
+const githubModuleUrl = (technicalName) => {
+  if (technicalName === "cp_module_health_checker") {
+    return siteLinks.githubModuleHealthChecker;
+  }
+  return siteLinks.githubFreeModules;
+};
 
 const boostyPostUrl = (slug) =>
   `https://boosty.to/example/posts/${slug}`;
