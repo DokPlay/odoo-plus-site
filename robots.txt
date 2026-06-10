@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dokplay.github.io/odoo-plus-site/sitemap.xml
+Sitemap: https://odoocustom.online/sitemap.xml

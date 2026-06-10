@@ -1,10 +1,10 @@
 export const siteLinks = {
   githubFreeModules: "https://github.com/DokPlay/odoo-plus-site",
   boostyProfile: "https://boosty.to/example",
-  email: "mailto:your-email@example.com",
-  linkedin: "https://www.linkedin.com/in/example-profile",
+  email: "mailto:serrggeejjj@gmail.com",
+  linkedin: "https://www.linkedin.com/in/сергей-снаткин-85563a3ab",
   telegram: "https://t.me/example",
-  siteUrl: "https://dokplay.github.io/odoo-plus-site/"
+  siteUrl: "https://odoocustom.online/"
 };
 
 const githubModuleUrl = () => siteLinks.githubFreeModules;
@@ -34,127 +34,127 @@ export const freeModules = [
     type: "free",
     technicalName: "cp_invoice_status_report",
     title: "Invoice Status Report",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Quick invoice status visibility for finance and operations follow-up.",
     details:
       "Planned report module for open, paid, overdue and review-needed invoices in small Odoo Community databases.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_invoice_status_report")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_simple_sales_report",
     title: "Simple Sales Report",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Lightweight sales summaries for day-to-day Community Edition use.",
     details:
       "Planned module for compact sales reporting without heavy analytics setup or Enterprise-only assumptions.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_simple_sales_report")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_duplicate_checker",
     title: "Duplicate Finder",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Find potential duplicate partners, products and operational records.",
     details:
       "Planned data-quality helper for safer cleanup before migrations, imports and day-to-day database maintenance.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_duplicate_checker")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_user_role_templates",
     title: "User Role Templates",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Reusable role templates for consistent user onboarding.",
     details:
       "Planned administrator utility for documenting and applying common role patterns in Community installations.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_user_role_templates")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_export_xlsx_lite",
     title: "Export XLSX Lite",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Simple XLSX exports for operational lists and lightweight reports.",
     details:
       "Planned export helper for common business views where a small spreadsheet is enough.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_export_xlsx_lite")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_activity_reminder_lite",
     title: "Activity Reminder Lite",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Reminder visibility for overdue activities and follow-up work.",
     details:
       "Planned lightweight reminder board for teams that need clearer activity discipline in Odoo Community.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_activity_reminder_lite")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_product_margin_lite",
     title: "Product Margin Lite",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Basic product margin visibility for sales and catalog review.",
     details:
       "Planned module for practical margin checks without positioning it as full accounting or Enterprise analytics.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_product_margin_lite")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_backup_notice",
     title: "Backup Notice",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Visible backup and maintenance notices for administrators.",
     details:
       "Planned admin helper for keeping backup expectations visible before upgrades, imports and risky changes.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_backup_notice")
+    ctaLabel: "Coming soon",
+    disabled: true
   },
   {
     type: "free",
     technicalName: "cp_quick_menu",
     title: "Quick Menu",
-    status: "Planned",
+    status: "Coming soon",
     badge: "Free",
     version: "Odoo 19.0 Community",
     price: "Free",
     description: "Fast shortcuts for common screens and repeated business actions.",
     details:
       "Planned productivity helper for administrators and users who move between common Odoo records all day.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_quick_menu")
+    ctaLabel: "Coming soon",
+    disabled: true
   }
 ];
 

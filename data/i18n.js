@@ -27,8 +27,8 @@ export const uiText = {
   en: {
     "meta.title": "Custom Odoo 19 Community Addons | Free and Pro Modules",
     "meta.description":
-      "Free and Pro-ready custom addons for Odoo 19 Community Edition: reports, dashboards, migration checks and setup services.",
-    "meta.ogDescription": "Free open-source modules, Pro add-ons and custom setup for stable Odoo installations.",
+      "A ready free addon, planned Free and Pro cards, and custom setup services for Odoo 19 Community Edition.",
+    "meta.ogDescription": "A ready free Odoo Community addon, planned module cards, Pro add-ons and custom setup services.",
     "brand.aria": "Community Plus Addons home",
     "nav.aria": "Primary navigation",
     "nav.modules": "Modules",
@@ -40,7 +40,7 @@ export const uiText = {
     "language.en": "EN",
     "language.ru": "RU",
     "hero.title": "Custom Addons for Odoo 19 Community",
-    "hero.subtitle": "Free open-source modules, Pro add-ons and custom setup for stable Odoo installations.",
+    "hero.subtitle": "A ready free module, planned module cards, Pro add-ons and custom setup for stable Odoo installations.",
     "hero.body":
       "Built for developers, integrators and small businesses that need practical Odoo improvements without unnecessary complexity.",
     "hero.freeCta": "View Free Modules",
@@ -53,7 +53,7 @@ export const uiText = {
     "hero.mediaAria": "Project preview",
     "hero.mediaAlt": "Preview card for Odoo 19 Free and Pro addons with GitHub and Boosty links",
     "featured.title": "Featured Modules",
-    "featured.body": "Start with open-source utilities, then add paid Pro workflows only when the business case is clear.",
+    "featured.body": "Start with the ready open-source utility, then follow planned Free and Pro cards as they become available.",
     "featured.healthAlt": "Module Health Checker interface preview",
     "featured.healthBadge": "Free",
     "featured.healthTitle": "Module Health Checker",
@@ -107,8 +107,8 @@ export const uiText = {
     "legal.aria": "Legal disclaimer",
     "legal.title": "This project is not affiliated with Odoo S.A.",
     "legal.body": "Odoo is a trademark of Odoo S.A. All modules are independently developed for Odoo Community Edition.",
-    "footer.body": "Independent custom addons, setup services and Pro roadmap for Odoo Community Edition.",
-    "footer.github": "GitHub free modules",
+    "footer.body": "Independent custom addons, setup services and a Free/Pro roadmap for Odoo Community Edition.",
+    "footer.github": "Ready module on GitHub",
     "footer.boosty": "Boosty",
     "footer.linkedin": "LinkedIn",
     "dialog.closeAria": "Close details",
@@ -121,8 +121,8 @@ export const uiText = {
   ru: {
     "meta.title": "Кастомные модули Odoo 19 Community | бесплатные и Pro-модули",
     "meta.description":
-      "Бесплатные и Pro-модули для Odoo 19 Community Edition: отчеты, панели, проверка миграции и услуги настройки.",
-    "meta.ogDescription": "Бесплатные открытые модули, Pro-дополнения и кастомная настройка для стабильных установок Odoo.",
+      "Готовый бесплатный модуль, плановые Free и Pro-карточки, а также услуги настройки для Odoo 19 Community Edition.",
+    "meta.ogDescription": "Готовый бесплатный модуль Odoo Community, плановые карточки, Pro-дополнения и услуги настройки.",
     "brand.aria": "Главная Community Plus Addons",
     "nav.aria": "Основная навигация",
     "nav.modules": "Модули",
@@ -134,7 +134,7 @@ export const uiText = {
     "language.en": "EN",
     "language.ru": "RU",
     "hero.title": "Кастомные модули для Odoo 19 Community",
-    "hero.subtitle": "Бесплатные открытые модули, Pro-дополнения и кастомная настройка для стабильных установок Odoo.",
+    "hero.subtitle": "Готовый бесплатный модуль, плановые карточки, Pro-дополнения и кастомная настройка для стабильных установок Odoo.",
     "hero.body":
       "Для разработчиков, интеграторов и малого бизнеса, которым нужны практичные улучшения Odoo без лишней сложности.",
     "hero.freeCta": "Смотреть бесплатные модули",
@@ -147,7 +147,7 @@ export const uiText = {
     "hero.mediaAria": "Превью проекта",
     "hero.mediaAlt": "Превью карточки Odoo 19 с бесплатными и Pro-модулями со ссылками GitHub и Boosty",
     "featured.title": "Избранные модули",
-    "featured.body": "Начните с открытых утилит, а Pro-функции подключайте, когда понятна бизнес-задача.",
+    "featured.body": "Начните с готовой открытой утилиты, а плановые Free и Pro-карточки отслеживайте по мере готовности.",
     "featured.healthAlt": "Превью интерфейса проверки модулей",
     "featured.healthBadge": "Бесплатно",
     "featured.healthTitle": "Проверка модулей",
@@ -201,8 +201,8 @@ export const uiText = {
     "legal.aria": "Юридический дисклеймер",
     "legal.title": "Этот проект не связан с Odoo S.A.",
     "legal.body": "Odoo является товарным знаком Odoo S.A. Все модули разрабатываются независимо для Odoo Community Edition.",
-    "footer.body": "Независимые кастомные модули, услуги настройки и Pro-план для Odoo Community Edition.",
-    "footer.github": "Бесплатные модули на GitHub",
+    "footer.body": "Независимые кастомные модули, услуги настройки и Free/Pro-план для Odoo Community Edition.",
+    "footer.github": "Готовый модуль на GitHub",
     "footer.boosty": "Boosty",
     "footer.linkedin": "LinkedIn",
     "dialog.closeAria": "Закрыть подробности",
@@ -229,93 +229,93 @@ export const itemTranslations = {
     },
     cp_invoice_status_report: {
       title: "Отчет по статусам счетов",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Быстрая видимость статусов счетов для финансового и операционного контроля.",
       details: "Планируемый отчет по открытым, оплаченным, просроченным и требующим проверки счетам.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_simple_sales_report: {
       title: "Простой отчет продаж",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Легкие сводки продаж для ежедневной работы в Community Edition.",
       details: "Планируемый модуль компактной отчетности по продажам без тяжелой аналитики и Enterprise-зависимостей.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_duplicate_checker: {
       title: "Поиск дублей",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Поиск возможных дублей партнеров, товаров и операционных записей.",
       details: "Планируемый помощник по качеству данных перед миграциями, импортами и обслуживанием базы.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_user_role_templates: {
       title: "Шаблоны ролей пользователей",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Повторно используемые шаблоны ролей для аккуратного онбординга пользователей.",
       details: "Планируемая утилита администратора для описания и применения типовых ролей в Community-установках.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_export_xlsx_lite: {
       title: "Экспорт XLSX Lite",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Простые XLSX-выгрузки для рабочих списков и легких отчетов.",
       details: "Планируемый помощник экспорта для типовых бизнес-представлений, где достаточно небольшой таблицы.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_activity_reminder_lite: {
       title: "Напоминания Lite",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Видимость просроченных активностей и задач для follow-up.",
       details: "Планируемая легкая доска напоминаний для команд, которым нужна прозрачная дисциплина активностей.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_product_margin_lite: {
       title: "Маржа товаров Lite",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Базовая видимость маржи товаров для продаж и проверки каталога.",
       details: "Планируемый модуль практичных проверок маржи без позиционирования как полноценная бухгалтерская аналитика.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_backup_notice: {
       title: "Уведомление о бэкапах",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Видимые уведомления о бэкапах и обслуживании для администраторов.",
       details: "Планируемый admin-helper для напоминаний перед обновлениями, импортами и рискованными изменениями.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_quick_menu: {
       title: "Быстрое меню",
-      status: "В плане",
+      status: "Скоро",
       badge: "Бесплатно",
       version: "Odoo 19.0 Community",
       price: "Бесплатно",
       description: "Быстрые ярлыки для частых экранов и повторяющихся действий.",
       details: "Планируемый помощник продуктивности для администраторов и пользователей, которые часто переходят между записями.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Скоро"
     },
     cp_dashboard_pro: {
       title: "Панель управления Pro",
