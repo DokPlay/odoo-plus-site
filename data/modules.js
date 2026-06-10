@@ -10,7 +10,7 @@ export const siteLinks = {
 const githubModuleUrl = () => siteLinks.githubFreeModules;
 
 const boostyPostUrl = (slug) =>
-  `https://boosty.to/example/posts/${slug}-placeholder`;
+  `https://boosty.to/example/posts/${slug}`;
 
 const mailtoSubject = (subject) =>
   `${siteLinks.email}?subject=${encodeURIComponent(subject)}`;
@@ -166,7 +166,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$49 placeholder",
+    price: "$79",
     description: "Clean sales, invoices and inventory dashboards for Odoo 19 Community.",
     details:
       "Planned paid module. The final card should link to a dedicated Boosty post with ZIP, INSTALL.md, CHANGELOG.md and LICENSE.txt in the closed section.",
@@ -181,7 +181,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$69 placeholder",
+    price: "$129",
     description: "Practical access-control review tools for administrators and integrators.",
     details: "Planned paid module for clearer access review and permission maintenance workflows.",
     ctaLabel: "Coming soon",
@@ -195,7 +195,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$79 placeholder",
+    price: "$99",
     description: "Additional accounting report views for Odoo Community installations.",
     details: "Planned paid reporting module for businesses that need clearer accounting-oriented summaries.",
     ctaLabel: "Coming soon",
@@ -209,7 +209,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$59 placeholder",
+    price: "$69",
     description: "Guided imports with safer review steps before data reaches production.",
     details: "Planned paid module for structured import preparation, checks and operator guidance.",
     ctaLabel: "Coming soon",
@@ -223,7 +223,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$89 placeholder",
+    price: "$109",
     description: "Migration readiness review before upgrading or moving an Odoo database.",
     details: "Planned paid module for technical review signals. Real migrations still require careful project-specific analysis.",
     ctaLabel: "Coming soon",
@@ -237,7 +237,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$99 placeholder",
+    price: "$399",
     description: "Connector roadmap for WooCommerce and Odoo Community workflows.",
     details: "Planned paid connector. Final scope should be confirmed against real store requirements before release.",
     ctaLabel: "Coming soon",
@@ -251,7 +251,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$119 placeholder",
+    price: "$189",
     description: "Connector roadmap for Shopify stores and Odoo Community operations.",
     details: "Planned paid connector with final scope reserved for concrete store and catalog workflows.",
     ctaLabel: "Coming soon",
@@ -265,7 +265,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$69 placeholder",
+    price: "$45",
     description: "Barcode-assisted inventory workflows for warehouse operations.",
     details: "Planned paid module for practical inventory scanning flows in Community installations.",
     ctaLabel: "Coming soon",
@@ -279,7 +279,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$59 placeholder",
+    price: "$69",
     description: "Purchase approval steps for small teams that need clearer control.",
     details: "Planned paid approval workflow for purchase operations and accountability.",
     ctaLabel: "Coming soon",
@@ -293,7 +293,7 @@ export const proModules = [
     status: "Coming soon",
     badge: "Pro",
     version: "Odoo 19.0 Community",
-    price: "$49 placeholder",
+    price: "$79",
     description: "Recurring invoice support for predictable repeat billing workflows.",
     details: "Planned paid module for repeat billing scenarios in Odoo Community Edition.",
     ctaLabel: "Coming soon",
@@ -391,10 +391,10 @@ export const roadmapItems = [
     status: "Later",
     badge: "Roadmap",
     version: "Odoo 19.0 Community",
-    price: "Placeholder",
+    price: "$79-$399",
     description: "Prepare separate paid Boosty posts for Pro releases.",
     details: "Each Pro module should receive its own Boosty URL before the button becomes active.",
-    ctaLabel: "Boosty placeholder",
+    ctaLabel: "Boosty soon",
     ctaUrl: siteLinks.boostyProfile
   },
   {
@@ -424,9 +424,8 @@ export const faqItems = [
       "Legacy Odoo 16.0 work is available only by request and after technical review, because it is not the main support promise of this site."
   },
   {
-    question: "Where are paid Pro modules stored?",
-    answer:
-      "The site only links to external paid access pages. Paid ZIP archives, private source code and payment secrets must not be stored on GitHub Pages."
+    question: "Where will paid Pro modules be available?",
+    answer: "Paid Pro modules will be available on Boosty."
   },
   {
     question: "Is this an official Odoo project?",

@@ -70,7 +70,7 @@ export const uiText = {
     "services.body":
       "We develop and customize addons for Odoo 17.0, 18.0 and 19.0. Legacy Odoo 16.0 work is available only by request and after technical review.",
     "services.emailCta": "Contact by email",
-    "services.linkedinCta": "LinkedIn placeholder",
+    "services.linkedinCta": "LinkedIn",
     "services.listAria": "Available service categories",
     "services.customTitle": "Custom module development",
     "services.customText": "Private Odoo modules for your business workflow.",
@@ -80,7 +80,7 @@ export const uiText = {
     "services.migrationText": "Technical review before upgrading or moving a database.",
     "catalog.title": "Module Catalog",
     "catalog.body": "Filter Free, Pro, Services and Roadmap cards without reloading the page.",
-    "catalog.boosty": "Boosty profile placeholder",
+    "catalog.boosty": "Boosty profile",
     "catalog.filtersAria": "Catalog filters",
     "catalog.all": "All",
     "catalog.free": "Free",
@@ -94,10 +94,9 @@ export const uiText = {
     "catalog.paidNoteTitle": "Paid modules note",
     "catalog.paidNoteBody":
       "Pro modules are distributed through separate paid access links. Each module should point to its own Boosty post with the module archive, installation guide, changelog and support notes.",
-    "catalog.paidNoteSecurity": "No payment secrets or private source code are stored on this GitHub Pages website.",
     "roadmap.title": "Roadmap",
     "roadmap.body":
-      "First stage: publish the website, keep all module cards visible, then replace placeholders as Free and Pro releases become ready.",
+      "First stage: publish the website, keep all module cards visible, then replace planned cards as Free and Pro releases become ready.",
     "roadmap.ready": "Ready",
     "roadmap.readyText": "Module Health Checker and site launch",
     "roadmap.next": "Next",
@@ -111,10 +110,8 @@ export const uiText = {
     "legal.body": "Odoo is a trademark of Odoo S.A. All modules are independently developed for Odoo Community Edition.",
     "footer.body": "Independent custom addons, setup services and Pro roadmap for Odoo Community Edition.",
     "footer.github": "GitHub free modules",
-    "footer.boosty": "Boosty placeholder",
-    "footer.linkedin": "LinkedIn placeholder",
-    "footer.static": "Static GitHub Pages site.",
-    "footer.security": "No backend payment logic, tokens, private keys or paid ZIP files are stored here.",
+    "footer.boosty": "Boosty",
+    "footer.linkedin": "LinkedIn",
     "dialog.closeAria": "Close details",
     "dialog.technicalName": "Technical name",
     "dialog.version": "Version",
@@ -168,7 +165,7 @@ export const uiText = {
     "services.body":
       "Мы разрабатываем и дорабатываем модули для Odoo 17.0, 18.0 и 19.0. Работа с legacy Odoo 16.0 доступна только по запросу и после технического анализа.",
     "services.emailCta": "Написать на email",
-    "services.linkedinCta": "LinkedIn заглушка",
+    "services.linkedinCta": "LinkedIn",
     "services.listAria": "Категории услуг",
     "services.customTitle": "Разработка кастомных модулей",
     "services.customText": "Приватные Odoo-модули под бизнес-процессы вашей компании.",
@@ -178,7 +175,7 @@ export const uiText = {
     "services.migrationText": "Технический аудит перед обновлением или переносом базы.",
     "catalog.title": "Каталог модулей",
     "catalog.body": "Фильтруйте бесплатные, Pro, услуги и плановые карточки без перезагрузки страницы.",
-    "catalog.boosty": "Boosty профиль, заглушка",
+    "catalog.boosty": "Boosty профиль",
     "catalog.filtersAria": "Фильтры каталога",
     "catalog.all": "Все",
     "catalog.free": "Бесплатные",
@@ -192,7 +189,6 @@ export const uiText = {
     "catalog.paidNoteTitle": "Важно о платных модулях",
     "catalog.paidNoteBody":
       "Pro-модули распространяются через отдельные платные ссылки. Каждый модуль должен вести на свой пост Boosty с архивом модуля, инструкцией установки, changelog и заметками поддержки.",
-    "catalog.paidNoteSecurity": "Платежные секреты и приватный исходный код не хранятся на этом сайте GitHub Pages.",
     "roadmap.title": "План развития",
     "roadmap.body":
       "Первый этап: опубликовать сайт, показать все карточки модулей и постепенно заменять заглушки по мере готовности бесплатных и Pro-релизов.",
@@ -209,10 +205,8 @@ export const uiText = {
     "legal.body": "Odoo является товарным знаком Odoo S.A. Все модули разрабатываются независимо для Odoo Community Edition.",
     "footer.body": "Независимые кастомные модули, услуги настройки и Pro-план для Odoo Community Edition.",
     "footer.github": "Бесплатные модули на GitHub",
-    "footer.boosty": "Boosty заглушка",
-    "footer.linkedin": "LinkedIn заглушка",
-    "footer.static": "Статичный сайт на GitHub Pages.",
-    "footer.security": "Backend-логика платежей, токены, приватные ключи и платные ZIP-файлы здесь не хранятся.",
+    "footer.boosty": "Boosty",
+    "footer.linkedin": "LinkedIn",
     "dialog.closeAria": "Закрыть подробности",
     "dialog.technicalName": "Техническое имя",
     "dialog.version": "Версия",
@@ -330,7 +324,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$49 заглушка",
+      price: "$79",
       description: "Аккуратные панели продаж, счетов и склада для Odoo 19 Community.",
       details:
         "Планируемый платный модуль. Финальная карточка должна вести на отдельный пост Boosty с ZIP, INSTALL.md, CHANGELOG.md и LICENSE.txt в закрытой части.",
@@ -341,7 +335,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$69 заглушка",
+      price: "$129",
       description: "Практичные инструменты ревью прав доступа для администраторов и интеграторов.",
       details: "Планируемый платный модуль для более понятного ревью и обслуживания прав доступа.",
       ctaLabel: "Скоро"
@@ -351,7 +345,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$79 заглушка",
+      price: "$99",
       description: "Дополнительные бухгалтерские отчеты для установок Odoo Community.",
       details: "Планируемый платный отчетный модуль для бизнесов, которым нужны более понятные финансовые сводки.",
       ctaLabel: "Скоро"
@@ -361,7 +355,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$59 заглушка",
+      price: "$69",
       description: "Пошаговые импорты с безопасными проверками перед попаданием данных в production.",
       details: "Планируемый платный модуль для подготовки импортов, проверок и операторских подсказок.",
       ctaLabel: "Скоро"
@@ -371,7 +365,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$89 заглушка",
+      price: "$109",
       description: "Проверка готовности перед обновлением или переносом базы Odoo.",
       details: "Планируемый платный модуль для технических сигналов ревью. Реальные миграции требуют отдельного анализа проекта.",
       ctaLabel: "Скоро"
@@ -381,7 +375,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$99 заглушка",
+      price: "$399",
       description: "Roadmap коннектора для WooCommerce и процессов Odoo Community.",
       details: "Планируемый платный коннектор. Финальный scope нужно подтвердить по реальным требованиям магазина.",
       ctaLabel: "Скоро"
@@ -391,7 +385,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$119 заглушка",
+      price: "$189",
       description: "Roadmap коннектора для Shopify-магазинов и операций Odoo Community.",
       details: "Планируемый платный коннектор с финальным scope под реальные процессы магазина и каталога.",
       ctaLabel: "Скоро"
@@ -401,7 +395,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$69 заглушка",
+      price: "$45",
       description: "Складские процессы со штрихкодами для операционной работы.",
       details: "Планируемый платный модуль для практичных сценариев сканирования на складе в Community.",
       ctaLabel: "Скоро"
@@ -411,7 +405,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$59 заглушка",
+      price: "$69",
       description: "Этапы согласования закупок для небольших команд с понятным контролем.",
       details: "Планируемый платный процесс согласования закупок и ответственности.",
       ctaLabel: "Скоро"
@@ -421,7 +415,7 @@ export const itemTranslations = {
       status: "Скоро",
       badge: "Pro",
       version: "Odoo 19.0 Community",
-      price: "$49 заглушка",
+      price: "$79",
       description: "Поддержка повторных счетов для предсказуемого регулярного биллинга.",
       details: "Планируемый платный модуль для сценариев регулярного выставления счетов в Odoo Community Edition.",
       ctaLabel: "Скоро"
@@ -491,10 +485,10 @@ export const itemTranslations = {
       status: "Позже",
       badge: "План",
       version: "Odoo 19.0 Community",
-      price: "Заглушка",
+      price: "$79-$399",
       description: "Подготовить отдельные платные посты Boosty для Pro-релизов.",
       details: "Каждый Pro-модуль должен получить отдельную Boosty-ссылку до активации кнопки покупки.",
-      ctaLabel: "Boosty заглушка"
+      ctaLabel: "Boosty скоро"
     },
     roadmap_services: {
       title: "Услуги",
@@ -522,9 +516,8 @@ export const faqTranslations = {
         "Работы по legacy Odoo 16.0 доступны только по запросу и после технического анализа, потому что это не основное обещание поддержки сайта."
     },
     {
-      question: "Где хранятся платные Pro-модули?",
-      answer:
-        "Сайт только ведет на внешние страницы платного доступа. Платные ZIP-архивы, приватный исходный код и платежные секреты не должны храниться на GitHub Pages."
+      question: "Где будут платные Pro-модули?",
+      answer: "Платные Pro-модули будут доступны на Boosty."
     },
     {
       question: "Это официальный проект Odoo?",
