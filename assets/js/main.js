@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260610-contacts";
+} from "../../data/modules.js?v=20260610-linkedin";
 import {
   defaultLanguage,
   faqTranslations,
@@ -14,7 +14,7 @@ import {
   russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260610-contacts";
+} from "../../data/i18n.js?v=20260610-linkedin";
 
 const allCatalogItems = [
   ...freeModules,
