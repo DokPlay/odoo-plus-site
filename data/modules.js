@@ -1,7 +1,7 @@
 export const siteLinks = {
   githubFreeModules: "https://github.com/DokPlay/odoo-community-plus-addons",
   githubModuleHealthChecker: "https://github.com/DokPlay/odoo-community-plus-addons/tree/19/cp_module_health_checker",
-  boostyProfile: "https://boosty.to/example",
+  boostyProfile: "https://boosty.to/dokplaytv",
   email: "mailto:serrggeejjj@gmail.com",
   linkedin: "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/",
   telegram: "https://t.me/example",
@@ -16,7 +16,7 @@ const githubModuleUrl = (technicalName) => {
 };
 
 const boostyPostUrl = (slug) =>
-  `https://boosty.to/example/posts/${slug}`;
+  `${siteLinks.boostyProfile}/posts/${slug}`;
 
 const mailtoSubject = (subject) =>
   `${siteLinks.email}?subject=${encodeURIComponent(subject)}`;
@@ -165,6 +165,23 @@ export const freeModules = [
 ];
 
 export const proModules = [
+  {
+    type: "pro",
+    technicalName: "cp_module_health_checker_pro",
+    title: "Module Health Checker Pro",
+    status: "Coming soon",
+    badge: "Pro",
+    version: "Odoo 19.0 Community",
+    price: "Coming soon",
+    description: "Advanced module audits with XML, Python API, migration and PDF report checks.",
+    details:
+      "Planned Pro extension for deeper module health work: advanced XML view checks, deprecated Python API scanning, migration readiness hints and exportable PDF audit reports.",
+    ctaLabel: "Coming soon",
+    ctaUrl: boostyPostUrl("module-health-checker-pro"),
+    image: "./assets/img/module-health-pro.png",
+    imageAlt: "Module Health Checker Pro preview",
+    disabled: true
+  },
   {
     type: "pro",
     technicalName: "cp_dashboard_pro",

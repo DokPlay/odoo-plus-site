@@ -496,6 +496,20 @@ select {
   padding: 22px;
 }
 
+.catalog-card-with-image {
+  min-height: 520px;
+}
+
+.card-image {
+  width: calc(100% + 44px);
+  max-width: none;
+  margin: -22px -22px 18px;
+  aspect-ratio: 1.52;
+  object-fit: cover;
+  background: var(--plum);
+  border-bottom: 1px solid rgba(113, 75, 103, 0.15);
+}
+
 .catalog-card-pro {
   background: #fbf8fc;
 }

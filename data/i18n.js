@@ -317,6 +317,19 @@ export const itemTranslations = {
       details: "Планируемый помощник продуктивности для администраторов и пользователей, которые часто переходят между записями.",
       ctaLabel: "Скоро"
     },
+    cp_module_health_checker_pro: {
+      title: "Проверка модулей Pro",
+      status: "Скоро",
+      badge: "Pro",
+      version: "Odoo 19.0 Community",
+      price: "Скоро",
+      description: "Расширенный аудит модулей: XML, Python API, миграция и PDF-отчеты.",
+      details:
+        "Планируемое Pro-расширение для глубокой проверки модулей: расширенная проверка XML-представлений, поиск устаревших Python API, подсказки готовности к миграции и выгружаемые PDF-отчеты аудита.",
+      ctaLabel: "Скоро",
+      image: "./assets/img/module-health-pro-ru.png",
+      imageAlt: "Превью Проверка модулей Pro"
+    },
     cp_dashboard_pro: {
       title: "Панель управления Pro",
       status: "Скоро",

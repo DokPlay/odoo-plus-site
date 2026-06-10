@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260610-github-module-link";
+} from "../../data/modules.js?v=20260611-health-pro-boosty";
 import {
   defaultLanguage,
   faqTranslations,
@@ -14,7 +14,7 @@ import {
   russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260610-github-module-link";
+} from "../../data/i18n.js?v=20260611-health-pro-boosty";
 
 const allCatalogItems = [
   ...freeModules,
@@ -129,9 +129,15 @@ function ctaMarkup(item) {
   return `<a class="card-cta" href="${escapeHtml(item.ctaUrl)}"${target}>${escapeHtml(item.ctaLabel)}</a>`;
 }
 
+function cardImageMarkup(item) {
+  if (!item.image) return "";
+  return `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt ?? item.title)}" loading="lazy">`;
+}
+
 function cardTemplate(item, index) {
   return `
-    <article class="catalog-card catalog-card-${escapeHtml(item.type)}">
+    <article class="catalog-card catalog-card-${escapeHtml(item.type)}${item.image ? " catalog-card-with-image" : ""}">
+      ${cardImageMarkup(item)}
       <div class="card-topline">
         <span class="badge ${badgeClass(item.type)}">${escapeHtml(item.badge)}</span>
         <span>${escapeHtml(item.status)}</span>
