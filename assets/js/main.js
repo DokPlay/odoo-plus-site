@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260610-pricing-footer";
+} from "../../data/modules.js?v=20260610-boosty-note";
 import {
   defaultLanguage,
   faqTranslations,
@@ -14,7 +14,7 @@ import {
   russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260610-pricing-footer";
+} from "../../data/i18n.js?v=20260610-boosty-note";
 
 const allCatalogItems = [
   ...freeModules,

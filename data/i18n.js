@@ -92,8 +92,7 @@ export const uiText = {
     "catalog.price": "Price",
     "catalog.details": "Details",
     "catalog.paidNoteTitle": "Paid modules note",
-    "catalog.paidNoteBody":
-      "Pro modules are distributed through separate paid access links. Each module should point to its own Boosty post with the module archive, installation guide, changelog and support notes.",
+    "catalog.paidNoteBody": "Paid Pro modules are available on Boosty. After purchase, access to the selected module opens there.",
     "roadmap.title": "Roadmap",
     "roadmap.body":
       "First stage: publish the website, keep all module cards visible, then replace planned cards as Free and Pro releases become ready.",
@@ -187,8 +186,7 @@ export const uiText = {
     "catalog.price": "Цена",
     "catalog.details": "Подробнее",
     "catalog.paidNoteTitle": "Важно о платных модулях",
-    "catalog.paidNoteBody":
-      "Pro-модули распространяются через отдельные платные ссылки. Каждый модуль должен вести на свой пост Boosty с архивом модуля, инструкцией установки, changelog и заметками поддержки.",
+    "catalog.paidNoteBody": "Платные Pro-модули доступны на Boosty. После покупки там откроется доступ к выбранному модулю.",
     "roadmap.title": "План развития",
     "roadmap.body":
       "Первый этап: опубликовать сайт, показать все карточки модулей и постепенно заменять заглушки по мере готовности бесплатных и Pro-релизов.",
@@ -327,7 +325,7 @@ export const itemTranslations = {
       price: "$79",
       description: "Аккуратные панели продаж, счетов и склада для Odoo 19 Community.",
       details:
-        "Планируемый платный модуль. Финальная карточка должна вести на отдельный пост Boosty с ZIP, INSTALL.md, CHANGELOG.md и LICENSE.txt в закрытой части.",
+        "Планируемый платный модуль. Доступ будет открыт на Boosty, когда релиз будет готов.",
       ctaLabel: "Скоро"
     },
     cp_access_manager_pro: {

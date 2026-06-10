@@ -169,7 +169,7 @@ export const proModules = [
     price: "$79",
     description: "Clean sales, invoices and inventory dashboards for Odoo 19 Community.",
     details:
-      "Planned paid module. The final card should link to a dedicated Boosty post with ZIP, INSTALL.md, CHANGELOG.md and LICENSE.txt in the closed section.",
+      "Planned paid module. Access will be available on Boosty when the release is ready.",
     ctaLabel: "Coming soon",
     ctaUrl: boostyPostUrl("dashboard-pro"),
     disabled: true
