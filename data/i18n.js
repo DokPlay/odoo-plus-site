@@ -2,6 +2,12 @@ export const supportedLanguages = ["en", "ru"];
 export const defaultLanguage = "en";
 export const languageStorageKey = "cp_site_language";
 
+const catalogImage = (technicalName) =>
+  `./assets/img/catalog/${technicalName}-ru.png`;
+
+const catalogImageAlt = (title) =>
+  `Превью ${title}`;
+
 export const russianTimeZones = [
   "Europe/Kaliningrad",
   "Europe/Moscow",
@@ -225,7 +231,9 @@ export const itemTranslations = {
       description: "Проверка установленных модулей, метаданных, лицензий и проблем зависимостей.",
       details:
         "Легкая проверка здоровья Community-установки. Фокус на метаданных модулей, видимости зависимостей и быстрых сигналах для ревью без платного кода и автоматизации миграций.",
-      ctaLabel: "Открыть на GitHub"
+      ctaLabel: "Открыть на GitHub",
+      image: catalogImage("cp_module_health_checker"),
+      imageAlt: catalogImageAlt("Проверка модулей")
     },
     cp_invoice_status_report: {
       title: "Отчет по статусам счетов",
@@ -235,7 +243,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Быстрая видимость статусов счетов для финансового и операционного контроля.",
       details: "Планируемый отчет по открытым, оплаченным, просроченным и требующим проверки счетам.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_invoice_status_report"),
+      imageAlt: catalogImageAlt("Отчет по статусам счетов")
     },
     cp_simple_sales_report: {
       title: "Простой отчет продаж",
@@ -245,7 +255,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Легкие сводки продаж для ежедневной работы в Community Edition.",
       details: "Планируемый модуль компактной отчетности по продажам без тяжелой аналитики и Enterprise-зависимостей.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_simple_sales_report"),
+      imageAlt: catalogImageAlt("Простой отчет продаж")
     },
     cp_duplicate_checker: {
       title: "Поиск дублей",
@@ -255,7 +267,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Поиск возможных дублей партнеров, товаров и операционных записей.",
       details: "Планируемый помощник по качеству данных перед миграциями, импортами и обслуживанием базы.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_duplicate_checker"),
+      imageAlt: catalogImageAlt("Поиск дублей")
     },
     cp_user_role_templates: {
       title: "Шаблоны ролей пользователей",
@@ -265,7 +279,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Повторно используемые шаблоны ролей для аккуратного онбординга пользователей.",
       details: "Планируемая утилита администратора для описания и применения типовых ролей в Community-установках.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_user_role_templates"),
+      imageAlt: catalogImageAlt("Шаблоны ролей пользователей")
     },
     cp_export_xlsx_lite: {
       title: "Экспорт XLSX Lite",
@@ -275,7 +291,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Простые XLSX-выгрузки для рабочих списков и легких отчетов.",
       details: "Планируемый помощник экспорта для типовых бизнес-представлений, где достаточно небольшой таблицы.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_export_xlsx_lite"),
+      imageAlt: catalogImageAlt("Экспорт XLSX Lite")
     },
     cp_activity_reminder_lite: {
       title: "Напоминания Lite",
@@ -285,7 +303,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Видимость просроченных активностей и задач для follow-up.",
       details: "Планируемая легкая доска напоминаний для команд, которым нужна прозрачная дисциплина активностей.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_activity_reminder_lite"),
+      imageAlt: catalogImageAlt("Напоминания Lite")
     },
     cp_product_margin_lite: {
       title: "Маржа товаров Lite",
@@ -295,7 +315,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Базовая видимость маржи товаров для продаж и проверки каталога.",
       details: "Планируемый модуль практичных проверок маржи без позиционирования как полноценная бухгалтерская аналитика.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_product_margin_lite"),
+      imageAlt: catalogImageAlt("Маржа товаров Lite")
     },
     cp_backup_notice: {
       title: "Уведомление о бэкапах",
@@ -305,7 +327,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Видимые уведомления о бэкапах и обслуживании для администраторов.",
       details: "Планируемый admin-helper для напоминаний перед обновлениями, импортами и рискованными изменениями.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_backup_notice"),
+      imageAlt: catalogImageAlt("Уведомление о бэкапах")
     },
     cp_quick_menu: {
       title: "Быстрое меню",
@@ -315,7 +339,9 @@ export const itemTranslations = {
       price: "Бесплатно",
       description: "Быстрые ярлыки для частых экранов и повторяющихся действий.",
       details: "Планируемый помощник продуктивности для администраторов и пользователей, которые часто переходят между записями.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Скоро",
+      image: catalogImage("cp_quick_menu"),
+      imageAlt: catalogImageAlt("Быстрое меню")
     },
     cp_module_health_checker_pro: {
       title: "Проверка модулей Pro",

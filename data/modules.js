@@ -18,6 +18,12 @@ const githubModuleUrl = (technicalName) => {
 const boostyPostUrl = (slug) =>
   `${siteLinks.boostyProfile}/posts/${slug}`;
 
+const catalogImage = (technicalName) =>
+  `./assets/img/catalog/${technicalName}.png`;
+
+const catalogImageAlt = (title) =>
+  `${title} preview`;
+
 const mailtoSubject = (subject) =>
   `${siteLinks.email}?subject=${encodeURIComponent(subject)}`;
 
@@ -34,7 +40,9 @@ export const freeModules = [
     details:
       "A lightweight health scan for Community installations. It focuses on module metadata, dependency visibility and quick review signals without paid-code or migration automation.",
     ctaLabel: "View on GitHub",
-    ctaUrl: githubModuleUrl("cp_module_health_checker")
+    ctaUrl: githubModuleUrl("cp_module_health_checker"),
+    image: catalogImage("cp_module_health_checker"),
+    imageAlt: catalogImageAlt("Module Health Checker")
   },
   {
     type: "free",
@@ -48,6 +56,8 @@ export const freeModules = [
     details:
       "Planned report module for open, paid, overdue and review-needed invoices in small Odoo Community databases.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_invoice_status_report"),
+    imageAlt: catalogImageAlt("Invoice Status Report"),
     disabled: true
   },
   {
@@ -62,6 +72,8 @@ export const freeModules = [
     details:
       "Planned module for compact sales reporting without heavy analytics setup or Enterprise-only assumptions.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_simple_sales_report"),
+    imageAlt: catalogImageAlt("Simple Sales Report"),
     disabled: true
   },
   {
@@ -76,6 +88,8 @@ export const freeModules = [
     details:
       "Planned data-quality helper for safer cleanup before migrations, imports and day-to-day database maintenance.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_duplicate_checker"),
+    imageAlt: catalogImageAlt("Duplicate Finder"),
     disabled: true
   },
   {
@@ -90,6 +104,8 @@ export const freeModules = [
     details:
       "Planned administrator utility for documenting and applying common role patterns in Community installations.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_user_role_templates"),
+    imageAlt: catalogImageAlt("User Role Templates"),
     disabled: true
   },
   {
@@ -104,6 +120,8 @@ export const freeModules = [
     details:
       "Planned export helper for common business views where a small spreadsheet is enough.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_export_xlsx_lite"),
+    imageAlt: catalogImageAlt("Export XLSX Lite"),
     disabled: true
   },
   {
@@ -118,6 +136,8 @@ export const freeModules = [
     details:
       "Planned lightweight reminder board for teams that need clearer activity discipline in Odoo Community.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_activity_reminder_lite"),
+    imageAlt: catalogImageAlt("Activity Reminder Lite"),
     disabled: true
   },
   {
@@ -132,6 +152,8 @@ export const freeModules = [
     details:
       "Planned module for practical margin checks without positioning it as full accounting or Enterprise analytics.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_product_margin_lite"),
+    imageAlt: catalogImageAlt("Product Margin Lite"),
     disabled: true
   },
   {
@@ -146,6 +168,8 @@ export const freeModules = [
     details:
       "Planned admin helper for keeping backup expectations visible before upgrades, imports and risky changes.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_backup_notice"),
+    imageAlt: catalogImageAlt("Backup Notice"),
     disabled: true
   },
   {
@@ -160,6 +184,8 @@ export const freeModules = [
     details:
       "Planned productivity helper for administrators and users who move between common Odoo records all day.",
     ctaLabel: "Coming soon",
+    image: catalogImage("cp_quick_menu"),
+    imageAlt: catalogImageAlt("Quick Menu"),
     disabled: true
   }
 ];
