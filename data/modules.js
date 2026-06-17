@@ -3,9 +3,10 @@ export const siteLinks = {
   githubModuleHealthChecker: "https://github.com/DokPlay/odoo-community-plus-addons/tree/19/cp_module_health_checker",
   boostyProfile: "https://boosty.to/dokplaytv",
   email: "mailto:serrggeejjj@gmail.com",
+  emailSetup: "mailto:serrggeejjj@gmail.com?subject=Odoo%20Custom%20Setup%20Request",
   linkedin: "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/",
   telegram: "https://t.me/example",
-  siteUrl: "https://odoocustom.online/"
+  siteUrl: "https://www.odoocustom.online/"
 };
 
 const githubModuleUrl = (technicalName) => {
@@ -434,7 +435,7 @@ export const roadmapItems = [
   {
     type: "roadmap",
     technicalName: "roadmap_pro_modules",
-    title: "10 Pro modules",
+    title: "11 Pro modules",
     status: "Later",
     badge: "Roadmap",
     version: "Odoo 19.0 Community",
@@ -472,7 +473,7 @@ export const faqItems = [
   },
   {
     question: "Where will paid Pro modules be available?",
-    answer: "Paid Pro modules will be available on Boosty."
+    answer: "Pro modules are coming soon. Each released Pro module will get its own Boosty access link."
   },
   {
     question: "Is this an official Odoo project?",

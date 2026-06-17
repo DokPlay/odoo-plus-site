@@ -80,6 +80,13 @@ select {
   backdrop-filter: blur(18px);
   box-shadow: 0 10px 32px rgba(31, 23, 36, 0.06);
   animation: header-drop 0.62s var(--ease-out) both;
+  transition: min-height 0.24s ease, padding 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.site-header.is-scrolled {
+  min-height: 62px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 38px rgba(31, 23, 36, 0.1);
 }
 
 .brand {
@@ -231,12 +238,24 @@ select {
 
 .is-disabled,
 .is-disabled:hover {
+  position: relative;
+  overflow: hidden;
   background: #e8e3eb;
   color: #8a8190;
   border-color: #e8e3eb;
   box-shadow: none;
   cursor: not-allowed;
   transform: none;
+}
+
+.catalog-card-pro .card-cta.is-disabled::after {
+  position: absolute;
+  inset: -40% auto -40% -45%;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.58), transparent);
+  content: "";
+  transform: skewX(-18deg);
+  animation: coming-soon-shimmer 3.6s ease-in-out infinite;
 }
 
 .section-band {
@@ -325,6 +344,27 @@ select {
 .support-line span {
   border-top: 1px solid var(--line);
   padding-top: 12px;
+}
+
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.trust-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  border: 1px solid rgba(113, 75, 103, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--violet-strong);
+  padding: 0 12px;
+  font-size: 0.84rem;
+  font-weight: 780;
+  box-shadow: 0 8px 22px rgba(31, 23, 36, 0.06);
 }
 
 .hero-media {
@@ -589,6 +629,25 @@ select {
   color: #fff;
 }
 
+.service-promise {
+  display: grid;
+  gap: 4px;
+  max-width: 680px;
+  margin-top: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 16px 18px;
+}
+
+.service-promise strong {
+  color: #fff;
+}
+
+.service-promise span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .service-list {
   display: grid;
   gap: 18px;
@@ -777,14 +836,47 @@ select {
 }
 
 .roadmap-steps {
+  position: relative;
   display: grid;
   gap: 14px;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 18px;
   list-style: none;
 }
 
+.roadmap-steps::before {
+  position: absolute;
+  top: 4px;
+  bottom: 16px;
+  left: 3px;
+  width: 2px;
+  background: rgba(113, 75, 103, 0.18);
+  content: "";
+}
+
+.roadmap-steps::after {
+  position: absolute;
+  top: 4px;
+  bottom: 16px;
+  left: 3px;
+  width: 2px;
+  background: linear-gradient(var(--violet), var(--blue));
+  content: "";
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.86s var(--ease-out);
+}
+
+.is-visible .roadmap-steps::after {
+  transform: scaleY(1);
+}
+
+.roadmap-steps.is-visible::after {
+  transform: scaleY(1);
+}
+
 .roadmap-steps li {
+  position: relative;
   display: flex;
   gap: 14px;
   align-items: baseline;
@@ -792,6 +884,19 @@ select {
   padding: 0 0 14px;
   color: var(--slate);
   font-weight: 700;
+}
+
+.roadmap-steps li::before {
+  position: absolute;
+  top: 0.42em;
+  left: -21px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 0 4px rgba(113, 75, 103, 0.14);
+  content: "";
 }
 
 .roadmap-steps span:first-child {
@@ -823,12 +928,36 @@ select {
   border-radius: var(--radius);
   background: #fff;
   padding: 18px 20px;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.faq-list details[open] {
+  border-color: rgba(113, 75, 103, 0.26);
+  box-shadow: 0 14px 32px rgba(31, 23, 36, 0.08);
 }
 
 .faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   color: var(--ink);
   font-weight: 800;
   cursor: pointer;
+}
+
+.faq-list summary::after {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--violet);
+  border-bottom: 2px solid var(--violet);
+  content: "";
+  transform: rotate(45deg);
+  transition: transform 0.22s ease;
+}
+
+.faq-list details[open] summary::after {
+  transform: rotate(225deg);
 }
 
 .faq-list p {
@@ -877,6 +1006,10 @@ select {
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-links span {
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .footer-links a:hover {
@@ -979,6 +1112,86 @@ select {
   color: rgba(255, 255, 255, 0.72);
 }
 
+.legal-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.legal-page-main {
+  padding: 72px 0 86px;
+}
+
+.legal-doc {
+  max-width: 860px;
+  border: 1px solid rgba(113, 75, 103, 0.14);
+  border-radius: 24px;
+  background: #fff;
+  padding: 40px;
+  box-shadow: var(--shadow-soft);
+}
+
+.legal-doc h1 {
+  margin: 0;
+  font-size: 2.55rem;
+  line-height: 1.08;
+}
+
+.legal-doc h2 {
+  margin: 34px 0 10px;
+  font-size: 1.28rem;
+}
+
+.legal-doc p,
+.legal-doc li {
+  color: var(--muted);
+}
+
+.legal-doc a {
+  color: var(--violet);
+  font-weight: 760;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 18;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(113, 75, 103, 0.22);
+  border-radius: 50%;
+  background: var(--violet);
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(31, 23, 36, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.back-to-top::before {
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+  content: "";
+  transform: translateY(3px) rotate(45deg);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  box-shadow: 0 22px 52px rgba(31, 23, 36, 0.26);
+  transform: translateY(-2px);
+}
+
 .reveal {
   opacity: 0;
   filter: blur(5px);
@@ -1050,6 +1263,17 @@ select {
   }
 }
 
+@keyframes coming-soon-shimmer {
+  0%,
+  62% {
+    left: -45%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
 @media (max-width: 980px) {
   .site-header {
     align-items: flex-start;
@@ -1080,6 +1304,7 @@ select {
   }
 
   .support-line,
+  .trust-row,
   .featured-grid,
   .catalog-grid {
     grid-template-columns: 1fr 1fr;
@@ -1176,6 +1401,7 @@ select {
   }
 
   .support-line,
+  .trust-row,
   .featured-grid,
   .catalog-grid,
   .card-meta,
@@ -1234,6 +1460,19 @@ select {
   .roadmap-steps li {
     display: grid;
     gap: 4px;
+  }
+
+  .legal-doc {
+    padding: 28px 20px;
+  }
+
+  .legal-doc h1 {
+    font-size: 2rem;
+  }
+
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
   }
 
   .dialog-body {

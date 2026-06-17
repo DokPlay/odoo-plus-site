@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-design-refresh-16";
+} from "../../data/modules.js?v=20260617-ux-tz-19";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,7 +13,7 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-design-refresh-16";
+} from "../../data/i18n.js?v=20260617-ux-tz-19";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -31,6 +31,8 @@ const catalogCount = document.querySelector("#catalogCount");
 const tabs = [...document.querySelectorAll(".tab")];
 const dialog = document.querySelector("#moduleDialog");
 const languageButtons = [...document.querySelectorAll("[data-language-option]")];
+const siteHeader = document.querySelector(".site-header");
+const backToTop = document.querySelector(".back-to-top");
 
 let currentFilter = "all";
 let renderedItems = [];
@@ -229,13 +231,47 @@ function renderFaq() {
   faqList.innerHTML = localizedFaqItems()
     .map(
       (item) => `
-        <details>
-          <summary>${escapeHtml(item.question)}</summary>
+        <details class="faq-item">
+          <summary aria-expanded="false">${escapeHtml(item.question)}</summary>
           <p>${escapeHtml(item.answer)}</p>
         </details>
       `
     )
     .join("");
+
+  faqList.querySelectorAll(".faq-item").forEach((details) => {
+    const summary = details.querySelector("summary");
+    let toggledByPointer = false;
+    const setOpen = (isOpen) => {
+      details.open = isOpen;
+      summary?.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    summary?.addEventListener("pointerup", (event) => {
+      event.preventDefault();
+      toggledByPointer = true;
+      setOpen(!details.open);
+      window.setTimeout(() => {
+        toggledByPointer = false;
+      }, 0);
+    });
+
+    summary?.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (toggledByPointer) return;
+      setOpen(!details.open);
+    });
+
+    summary?.addEventListener("keydown", (event) => {
+      if (!["Enter", " "].includes(event.key)) return;
+      event.preventDefault();
+      setOpen(!details.open);
+    });
+
+    details.addEventListener("toggle", () => {
+      summary?.setAttribute("aria-expanded", String(details.open));
+    });
+  });
 }
 
 function openDetails(item) {
@@ -323,6 +359,16 @@ function bindEvents() {
 
   languageButtons.forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.languageOption));
+  });
+
+  window.addEventListener("scroll", () => {
+    const isScrolled = window.scrollY > 18;
+    siteHeader?.classList.toggle("is-scrolled", isScrolled);
+    backToTop?.classList.toggle("is-visible", window.scrollY > 800);
+  }, { passive: true });
+
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   document.querySelectorAll("[data-filter-link]").forEach((link) => {
