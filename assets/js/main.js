@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-ux-tz-19";
+} from "../../data/modules.js?v=20260617-ux-tz-v2-20";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,7 +13,7 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-ux-tz-19";
+} from "../../data/i18n.js?v=20260617-ux-tz-v2-20";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -33,6 +33,9 @@ const dialog = document.querySelector("#moduleDialog");
 const languageButtons = [...document.querySelectorAll("[data-language-option]")];
 const siteHeader = document.querySelector(".site-header");
 const backToTop = document.querySelector(".back-to-top");
+const siteToast = document.querySelector("#siteToast");
+const copyEmailButtons = [...document.querySelectorAll("[data-copy-email]")];
+const countUpElements = [...document.querySelectorAll("[data-count-up]")];
 
 let currentFilter = "all";
 let renderedItems = [];
@@ -134,7 +137,7 @@ function catalogImagePath(item) {
 }
 
 function cardImageMarkup(item) {
-  return `<img class="card-image" src="${escapeHtml(item.image ?? catalogImagePath(item))}" alt="${escapeHtml(item.imageAlt ?? `${item.title} preview`)}" loading="lazy">`;
+  return `<img class="card-image" src="${escapeHtml(item.image ?? catalogImagePath(item))}" width="1000" height="660" alt="${escapeHtml(item.imageAlt ?? `${item.title} preview`)}" loading="lazy" decoding="async">`;
 }
 
 function cardTemplate(item, index) {
@@ -180,10 +183,80 @@ function queueReveal(elements) {
 
 function renderCatalog(filter = currentFilter) {
   currentFilter = filter;
+  catalogGrid.classList.add("is-filtering");
   renderedItems = allCatalogItems.filter((item) => itemMatchesFilter(item, filter)).map(localizeItem);
   catalogGrid.innerHTML = renderedItems.map(cardTemplate).join("");
   catalogCount.textContent = `${getFilterLabel(filter)}: ${renderedItems.length} ${getNestedText("catalog.cards")}`;
   queueReveal([...catalogGrid.querySelectorAll(".catalog-card")]);
+  window.requestAnimationFrame(() => catalogGrid.classList.remove("is-filtering"));
+}
+
+function showToast(message) {
+  if (!siteToast) return;
+  siteToast.textContent = message;
+  siteToast.classList.add("is-visible");
+  window.clearTimeout(showToast.timer);
+  showToast.timer = window.setTimeout(() => siteToast.classList.remove("is-visible"), 2400);
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  return copied;
+}
+
+function initCountUp() {
+  if (!countUpElements.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const run = (element) => {
+    if (element.dataset.counted === "true") return;
+    element.dataset.counted = "true";
+    const target = Number(element.dataset.countUp);
+    if (!Number.isFinite(target) || prefersReducedMotion) {
+      element.textContent = String(target);
+      return;
+    }
+
+    const duration = 900;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = String(Math.round(target * eased));
+      if (progress < 1) window.requestAnimationFrame(step);
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    countUpElements.forEach(run);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        run(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+  countUpElements.forEach((element) => observer.observe(element));
 }
 
 function headerHeight() {
@@ -361,6 +434,18 @@ function bindEvents() {
     button.addEventListener("click", () => setLanguage(button.dataset.languageOption));
   });
 
+  copyEmailButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const email = button.dataset.copyEmail;
+      try {
+        const copied = await copyTextToClipboard(email);
+        showToast(copied ? getNestedText("services.copySuccess") : getNestedText("services.copyFallback"));
+      } catch {
+        showToast(getNestedText("services.copyFallback"));
+      }
+    });
+  });
+
   window.addEventListener("scroll", () => {
     const isScrolled = window.scrollY > 18;
     siteHeader?.classList.toggle("is-scrolled", isScrolled);
@@ -411,9 +496,11 @@ function initMotion() {
 
   queueReveal([
     ...document.querySelectorAll(
-      ".hero-copy > *, .hero-media, .featured-card, .service-grid > *, .paid-note, .roadmap-layout > *, .faq-grid > *"
+      ".hero-copy > *, .hero-media, .featured-card, .service-grid > *, .workflow-step, .paid-note, .roadmap-layout > *, .faq-grid > *"
     )
   ]);
+
+  initCountUp();
 }
 
 function alignCurrentHashTarget() {
