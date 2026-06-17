@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-design-refresh-7";
+} from "../../data/modules.js?v=20260617-design-refresh-14";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,7 +13,11 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-design-refresh-7";
+} from "../../data/i18n.js?v=20260617-design-refresh-14";
+
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
 
 const allCatalogItems = [
   ...freeModules,
@@ -180,13 +184,44 @@ function renderCatalog(filter = currentFilter) {
   queueReveal([...catalogGrid.querySelectorAll(".catalog-card")]);
 }
 
-function setActiveFilter(filter) {
+function headerHeight() {
+  return document.querySelector(".site-header")?.getBoundingClientRect().height ?? 0;
+}
+
+function alignElementBelowHeader(target, gap = 12) {
+  if (!target) return;
+  const top = window.scrollY + target.getBoundingClientRect().top - headerHeight() - gap;
+  window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+}
+
+function isCatalogNearViewport() {
+  const catalog = document.querySelector("#modules");
+  if (!catalog) return false;
+  const rect = catalog.getBoundingClientRect();
+  return rect.top < window.innerHeight * 0.75 && rect.bottom > headerHeight();
+}
+
+function scheduleCatalogAlignment() {
+  const catalog = document.querySelector("#modules");
+  if (!catalog) return;
+  window.requestAnimationFrame(() => alignElementBelowHeader(catalog));
+  window.setTimeout(() => alignElementBelowHeader(catalog), 180);
+  window.setTimeout(() => alignElementBelowHeader(catalog), 520);
+  window.setTimeout(() => alignElementBelowHeader(catalog), 1400);
+  window.setTimeout(() => alignElementBelowHeader(catalog), 2600);
+}
+
+function setActiveFilter(filter, keepCatalogAligned = false) {
   tabs.forEach((tab) => {
     const isActive = tab.dataset.filter === filter;
     tab.classList.toggle("is-active", isActive);
     tab.setAttribute("aria-selected", String(isActive));
   });
   renderCatalog(filter);
+
+  if (keepCatalogAligned) {
+    scheduleCatalogAlignment();
+  }
 }
 
 function renderFaq() {
@@ -265,11 +300,16 @@ function applyStaticTranslations() {
 
 function setLanguage(language, persist = true) {
   const normalized = normalizeLanguage(language) ?? defaultLanguage;
+  const keepCatalogAligned = isCatalogNearViewport();
   currentLanguage = normalized;
   if (persist) saveLanguage(normalized);
   applyStaticTranslations();
   renderFaq();
   renderCatalog(currentFilter);
+
+  if (keepCatalogAligned) {
+    scheduleCatalogAlignment();
+  }
 
   const url = new URL(window.location.href);
   url.searchParams.set("lang", normalized);
@@ -278,7 +318,7 @@ function setLanguage(language, persist = true) {
 
 function bindEvents() {
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => setActiveFilter(tab.dataset.filter));
+    tab.addEventListener("click", () => setActiveFilter(tab.dataset.filter, true));
   });
 
   languageButtons.forEach((button) => {
@@ -291,7 +331,7 @@ function bindEvents() {
       if (!filter) return;
       event.preventDefault();
       document.querySelector("#modules").scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveFilter(filter);
+      setActiveFilter(filter, true);
     });
   });
 
@@ -330,24 +370,44 @@ function initMotion() {
   ]);
 }
 
-function realignInitialHash() {
+function alignCurrentHashTarget() {
   const hash = window.location.hash;
-  if (!hash) return;
+  if (!hash) return false;
 
   const target = document.querySelector(hash);
-  if (!target) return;
+  if (!target) return false;
 
-  const align = () => {
-    const headerHeight = document.querySelector(".site-header")?.getBoundingClientRect().height ?? 0;
-    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
-    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
-  };
+  alignElementBelowHeader(target);
+  return true;
+}
 
-  window.requestAnimationFrame(align);
-  window.setTimeout(align, 450);
-  window.setTimeout(align, 900);
-  window.setTimeout(align, 1800);
-  window.addEventListener("load", () => window.setTimeout(align, 120), { once: true });
+function scheduleHashAlignment() {
+  window.requestAnimationFrame(alignCurrentHashTarget);
+  window.setTimeout(alignCurrentHashTarget, 0);
+  window.setTimeout(alignCurrentHashTarget, 450);
+  window.setTimeout(alignCurrentHashTarget, 900);
+  window.setTimeout(alignCurrentHashTarget, 1800);
+  window.setTimeout(alignCurrentHashTarget, 2600);
+}
+
+function watchHashAlignment() {
+  let attempts = 0;
+  const watcher = window.setInterval(() => {
+    attempts += 1;
+    if (alignCurrentHashTarget() || attempts >= 36) {
+      window.clearInterval(watcher);
+    }
+  }, 180);
+}
+
+function realignInitialHash() {
+  scheduleHashAlignment();
+  watchHashAlignment();
+  window.addEventListener("hashchange", () => {
+    scheduleHashAlignment();
+    watchHashAlignment();
+  });
+  window.addEventListener("load", () => window.setTimeout(alignCurrentHashTarget, 120), { once: true });
 }
 
 setConfiguredLinks();
