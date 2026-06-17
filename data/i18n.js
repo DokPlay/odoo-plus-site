@@ -1,6 +1,6 @@
 export const supportedLanguages = ["en", "ru"];
 export const defaultLanguage = "en";
-export const languageStorageKey = "cp_site_language";
+export const languageStorageKey = "cp_site_language_v2";
 
 const catalogImage = (technicalName) =>
   `./assets/img/catalog/${technicalName}-ru.png`;

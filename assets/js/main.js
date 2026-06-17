@@ -5,16 +5,15 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260611-free-images";
+} from "../../data/modules.js?v=20260617-design-refresh-7";
 import {
   defaultLanguage,
   faqTranslations,
   itemTranslations,
   languageStorageKey,
-  russianTimeZones,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260611-free-images";
+} from "../../data/i18n.js?v=20260617-design-refresh-7";
 
 const allCatalogItems = [
   ...freeModules,
@@ -32,6 +31,7 @@ const languageButtons = [...document.querySelectorAll("[data-language-option]")]
 let currentFilter = "all";
 let renderedItems = [];
 let currentLanguage = resolveInitialLanguage();
+let revealObserver;
 
 const escapeHtml = (value) =>
   String(value)
@@ -76,15 +76,8 @@ function languageFromStorage() {
   }
 }
 
-function browserLooksRussian() {
-  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
-  const hasRussianLanguage = languages.some((language) => /^ru\b/i.test(language));
-  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  return hasRussianLanguage || russianTimeZones.includes(timeZone);
-}
-
 function resolveInitialLanguage() {
-  return languageFromQuery() || languageFromStorage() || (browserLooksRussian() ? "ru" : defaultLanguage);
+  return languageFromQuery() || languageFromStorage() || defaultLanguage;
 }
 
 function saveLanguage(language) {
@@ -166,11 +159,25 @@ function cardTemplate(item, index) {
   `;
 }
 
+function queueReveal(elements) {
+  elements.forEach((element, index) => {
+    element.classList.add("reveal");
+    element.style.setProperty("--reveal-delay", `${Math.min(index, 8) * 45}ms`);
+
+    if (revealObserver) {
+      revealObserver.observe(element);
+    } else {
+      element.classList.add("is-visible");
+    }
+  });
+}
+
 function renderCatalog(filter = currentFilter) {
   currentFilter = filter;
   renderedItems = allCatalogItems.filter((item) => itemMatchesFilter(item, filter)).map(localizeItem);
   catalogGrid.innerHTML = renderedItems.map(cardTemplate).join("");
   catalogCount.textContent = `${getFilterLabel(filter)}: ${renderedItems.length} ${getNestedText("catalog.cards")}`;
+  queueReveal([...catalogGrid.querySelectorAll(".catalog-card")]);
 }
 
 function setActiveFilter(filter) {
@@ -302,8 +309,51 @@ function bindEvents() {
   });
 }
 
+function initMotion() {
+  if (!("IntersectionObserver" in window)) return;
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.14 }
+  );
+
+  queueReveal([
+    ...document.querySelectorAll(
+      ".hero-copy > *, .hero-media, .featured-card, .service-grid > *, .paid-note, .roadmap-layout > *, .faq-grid > *"
+    )
+  ]);
+}
+
+function realignInitialHash() {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const target = document.querySelector(hash);
+  if (!target) return;
+
+  const align = () => {
+    const headerHeight = document.querySelector(".site-header")?.getBoundingClientRect().height ?? 0;
+    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+  };
+
+  window.requestAnimationFrame(align);
+  window.setTimeout(align, 450);
+  window.setTimeout(align, 900);
+  window.setTimeout(align, 1800);
+  window.addEventListener("load", () => window.setTimeout(align, 120), { once: true });
+}
+
 setConfiguredLinks();
 applyStaticTranslations();
+initMotion();
 renderFaq();
 renderCatalog();
 bindEvents();
+realignInitialHash();
