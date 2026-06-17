@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-design-refresh-14";
+} from "../../data/modules.js?v=20260617-design-refresh-16";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,7 +13,7 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-design-refresh-14";
+} from "../../data/i18n.js?v=20260617-design-refresh-16";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
