@@ -1295,7 +1295,7 @@ ${head({ lang, page, title, description, path, schema, ogImage })}
 ${header(lang, page)}
 ${body}
 ${footer(lang)}
-    <script type="module" src="/assets/js/analytics.js?v=20260618-consent-mode-1"></script>
+    <script type="module" src="/assets/js/analytics.js?v=20260619-metrika-1"></script>
   </body>
 </html>
 `;

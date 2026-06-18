@@ -1,6 +1,7 @@
 const analyticsConfig = {
   // Fill these IDs to activate tracking. Empty values keep external analytics disabled.
   ga4MeasurementId: "G-QYCQDM5F0C",
+  yandexMetrikaId: "109974481",
   clarityProjectId: ""
 };
 
@@ -23,6 +24,7 @@ const consentCopy = {
 
 let analyticsReady = false;
 let ga4Loaded = false;
+let yandexMetrikaLoaded = false;
 const trackedScrollDepths = new Set();
 
 function configured(value, placeholderPrefix) {
@@ -35,6 +37,10 @@ function hasGa4() {
 
 function hasClarity() {
   return configured(analyticsConfig.clarityProjectId, "");
+}
+
+function hasYandexMetrika() {
+  return configured(analyticsConfig.yandexMetrikaId, "");
 }
 
 function currentLanguage() {
@@ -118,10 +124,43 @@ function loadClarity() {
   loadScript(`https://www.clarity.ms/tag/${encodeURIComponent(analyticsConfig.clarityProjectId)}`);
 }
 
+function ensureYandexMetrika() {
+  if (typeof window.ym === "function") return;
+  window.ym = function ym() {
+    (window.ym.a = window.ym.a || []).push(arguments);
+  };
+  window.ym.l = Number(new Date());
+}
+
+function loadYandexMetrika() {
+  if (!hasYandexMetrika() || yandexMetrikaLoaded) return;
+  yandexMetrikaLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  ensureYandexMetrika();
+
+  const tagUrl = `https://mc.yandex.ru/metrika/tag.js?id=${encodeURIComponent(analyticsConfig.yandexMetrikaId)}`;
+  const alreadyLoaded = Array.from(document.scripts).some((script) => script.src === tagUrl);
+  if (!alreadyLoaded) {
+    loadScript(tagUrl);
+  }
+
+  window.ym(Number(analyticsConfig.yandexMetrikaId), "init", {
+    ssr: true,
+    webvisor: true,
+    clickmap: true,
+    ecommerce: "dataLayer",
+    referrer: document.referrer,
+    url: location.href,
+    accurateTrackBounce: true,
+    trackLinks: true
+  });
+}
+
 function enableAnalytics() {
   if (analyticsReady) return;
   analyticsReady = true;
   loadGa4();
+  loadYandexMetrika();
   loadClarity();
 }
 
@@ -139,6 +178,10 @@ function trackEvent(eventName, params = {}) {
 
   if (typeof window.clarity === "function") {
     window.clarity("event", eventName);
+  }
+
+  if (hasYandexMetrika() && typeof window.ym === "function") {
+    window.ym(Number(analyticsConfig.yandexMetrikaId), "reachGoal", eventName, eventParams);
   }
 }
 
