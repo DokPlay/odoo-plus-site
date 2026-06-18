@@ -2023,6 +2023,24 @@ async function main() {
     "google-site-verification: googleaaf615dabec28921.html\n",
     "utf8"
   );
+  await writeFile(
+    join(rootDir, "yandex_e96016ef98c18752.html"),
+    `<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>Verification: e96016ef98c18752</body>
+</html>`,
+    "utf8"
+  );
+  await writeFile(
+    join(rootDir, "BingSiteAuth.xml"),
+    `<?xml version="1.0"?>
+<users>
+\t<user>99E41D64E4A365A3AEF9AF0E022B6E7F</user>
+</users>`,
+    "utf8"
+  );
 }
 
 main().catch((error) => {
