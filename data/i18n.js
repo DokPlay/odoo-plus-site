@@ -3,7 +3,7 @@ export const defaultLanguage = "en";
 export const languageStorageKey = "cp_site_language_v2";
 
 const catalogImage = (technicalName) =>
-  `./assets/img/catalog/${technicalName}-ru.png`;
+  `./assets/img/catalog/${technicalName}-ru.png?v=20260617-ux-tz-v2-38`;
 
 const catalogImageAlt = (title) =>
   `Превью ${title}`;
@@ -96,9 +96,6 @@ export const uiText = {
       "I develop and customize addons for Odoo 19.0. Odoo 18.0 and 17.0 are available by request. Legacy Odoo 16.0 work is available only after technical review.",
     "services.emailCta": "Contact by email",
     "services.linkedinCta": "LinkedIn profile",
-    "services.copyEmailCta": "Copy email",
-    "services.copySuccess": "Email copied",
-    "services.copyFallback": "Email: serrggeejjj@gmail.com",
     "services.promiseTitle": "Response promise",
     "services.promiseText": "Send your Odoo version, installed apps and required workflow. You will get a practical scope and estimate.",
     "services.listAria": "Available service categories",
@@ -231,9 +228,6 @@ export const uiText = {
       "Я разрабатываю и дорабатываю модули для Odoo 19.0. Odoo 18.0 и 17.0 доступны по запросу. Работа с legacy Odoo 16.0 возможна только после технического анализа.",
     "services.emailCta": "Написать на email",
     "services.linkedinCta": "Профиль LinkedIn",
-    "services.copyEmailCta": "Скопировать email",
-    "services.copySuccess": "Email скопирован",
-    "services.copyFallback": "Email: serrggeejjj@gmail.com",
     "services.promiseTitle": "Как отвечаем",
     "services.promiseText": "Пришлите версию Odoo, установленные приложения и нужный процесс. В ответ получите понятный объем работ и оценку.",
     "services.listAria": "Категории услуг",
@@ -425,17 +419,6 @@ export const itemTranslations = {
       image: catalogImage("cp_quick_menu"),
       imageAlt: catalogImageAlt("Быстрое меню")
     },
-    cp_module_health_checker_pro: {
-      title: "Проверка модулей Pro",
-      status: "Скоро",
-      badge: "Pro",
-      version: "Odoo 19.0 Community",
-      price: "Скоро",
-      description: "Расширенный аудит модулей: XML, Python API, миграция и PDF-отчеты.",
-      details:
-        "Планируемое Pro-расширение для глубокой проверки модулей: расширенная проверка XML-представлений, поиск устаревших Python API, подсказки готовности к миграции и выгружаемые PDF-отчеты аудита.",
-      ctaLabel: "Скоро"
-    },
     cp_dashboard_pro: {
       title: "Панель управления Pro",
       status: "Скоро",
@@ -598,7 +581,7 @@ export const itemTranslations = {
       ctaLabel: "Смотреть каталог"
     },
     roadmap_pro_modules: {
-      title: "11 Pro модулей",
+      title: "10 Pro модулей",
       status: "Позже",
       badge: "План",
       version: "Odoo 19.0 Community",

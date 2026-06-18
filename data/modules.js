@@ -20,7 +20,7 @@ const boostyPostUrl = (slug) =>
   `${siteLinks.boostyProfile}/posts/${slug}`;
 
 const catalogImage = (technicalName) =>
-  `./assets/img/catalog/${technicalName}.png`;
+  `./assets/img/catalog/${technicalName}.png?v=20260617-ux-tz-v2-38`;
 
 const catalogImageAlt = (title) =>
   `${title} preview`;
@@ -192,21 +192,6 @@ export const freeModules = [
 ];
 
 export const proModules = [
-  {
-    type: "pro",
-    technicalName: "cp_module_health_checker_pro",
-    title: "Module Health Checker Pro",
-    status: "Coming soon",
-    badge: "Pro",
-    version: "Odoo 19.0 Community",
-    price: "Coming soon",
-    description: "Advanced module audits with XML, Python API, migration and PDF report checks.",
-    details:
-      "Planned Pro extension for deeper module health work: advanced XML view checks, deprecated Python API scanning, migration readiness hints and exportable PDF audit reports.",
-    ctaLabel: "Coming soon",
-    ctaUrl: boostyPostUrl("module-health-checker-pro"),
-    disabled: true
-  },
   {
     type: "pro",
     technicalName: "cp_dashboard_pro",
@@ -435,7 +420,7 @@ export const roadmapItems = [
   {
     type: "roadmap",
     technicalName: "roadmap_pro_modules",
-    title: "11 Pro modules",
+    title: "10 Pro modules",
     status: "Later",
     badge: "Roadmap",
     version: "Odoo 19.0 Community",

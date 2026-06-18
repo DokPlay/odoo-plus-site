@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-ux-tz-v2-20";
+} from "../../data/modules.js?v=20260617-ux-tz-v2-38";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,7 +13,9 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-ux-tz-v2-20";
+} from "../../data/i18n.js?v=20260617-ux-tz-v2-38";
+
+const assetVersion = "20260617-ux-tz-v2-38";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -33,8 +35,6 @@ const dialog = document.querySelector("#moduleDialog");
 const languageButtons = [...document.querySelectorAll("[data-language-option]")];
 const siteHeader = document.querySelector(".site-header");
 const backToTop = document.querySelector(".back-to-top");
-const siteToast = document.querySelector("#siteToast");
-const copyEmailButtons = [...document.querySelectorAll("[data-copy-email]")];
 const countUpElements = [...document.querySelectorAll("[data-count-up]")];
 
 let currentFilter = "all";
@@ -116,6 +116,12 @@ function setConfiguredLinks() {
   });
 }
 
+function setLegalLinks() {
+  document.querySelectorAll("[data-legal-link]").forEach((link) => {
+    link.href = `./${link.dataset.legalLink}.html?lang=${currentLanguage}`;
+  });
+}
+
 function itemMatchesFilter(item, filter) {
   return filter === "all" || item.type === filter;
 }
@@ -133,7 +139,7 @@ function ctaMarkup(item) {
 
 function catalogImagePath(item) {
   const languageSuffix = currentLanguage === "ru" ? "-ru" : "";
-  return `./assets/img/catalog/${item.technicalName}${languageSuffix}.png`;
+  return `./assets/img/catalog/${item.technicalName}${languageSuffix}.png?v=${assetVersion}`;
 }
 
 function cardImageMarkup(item) {
@@ -168,12 +174,16 @@ function cardTemplate(item, index) {
   `;
 }
 
-function queueReveal(elements) {
+function queueReveal(elements, options = {}) {
+  const { immediate = false, stagger = 45 } = options;
+
   elements.forEach((element, index) => {
     element.classList.add("reveal");
-    element.style.setProperty("--reveal-delay", `${Math.min(index, 8) * 45}ms`);
+    element.style.setProperty("--reveal-delay", `${Math.min(index, 8) * stagger}ms`);
 
-    if (revealObserver) {
+    if (immediate) {
+      element.classList.add("is-visible");
+    } else if (revealObserver) {
       revealObserver.observe(element);
     } else {
       element.classList.add("is-visible");
@@ -187,34 +197,8 @@ function renderCatalog(filter = currentFilter) {
   renderedItems = allCatalogItems.filter((item) => itemMatchesFilter(item, filter)).map(localizeItem);
   catalogGrid.innerHTML = renderedItems.map(cardTemplate).join("");
   catalogCount.textContent = `${getFilterLabel(filter)}: ${renderedItems.length} ${getNestedText("catalog.cards")}`;
-  queueReveal([...catalogGrid.querySelectorAll(".catalog-card")]);
+  queueReveal([...catalogGrid.querySelectorAll(".catalog-card")], { immediate: true, stagger: 24 });
   window.requestAnimationFrame(() => catalogGrid.classList.remove("is-filtering"));
-}
-
-function showToast(message) {
-  if (!siteToast) return;
-  siteToast.textContent = message;
-  siteToast.classList.add("is-visible");
-  window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => siteToast.classList.remove("is-visible"), 2400);
-}
-
-async function copyTextToClipboard(text) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return true;
-  }
-
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
-  document.body.append(textarea);
-  textarea.select();
-  const copied = document.execCommand("copy");
-  textarea.remove();
-  return copied;
 }
 
 function initCountUp() {
@@ -266,7 +250,45 @@ function headerHeight() {
 function alignElementBelowHeader(target, gap = 12) {
   if (!target) return;
   const top = window.scrollY + target.getBoundingClientRect().top - headerHeight() - gap;
-  window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+  const safeTop = Math.max(0, top);
+  forceScrollTop(safeTop);
+}
+
+function forceScrollTop(top) {
+  const scroller = document.scrollingElement ?? document.documentElement;
+  window.scrollTo({ top, behavior: "auto" });
+  scroller.scrollTo({ top, behavior: "auto" });
+  scroller.scrollTop = top;
+  document.documentElement.scrollTop = top;
+  document.body.scrollTop = top;
+}
+
+function scrollTargetIntoPlace(target, gap = 12) {
+  if (!target) return false;
+  const top = window.scrollY + target.getBoundingClientRect().top - headerHeight() - gap;
+  const safeTop = Math.max(0, top);
+  forceScrollTop(safeTop);
+  return true;
+}
+
+function lockScrollToTarget(target, gap = 12) {
+  if (!scrollTargetIntoPlace(target, gap)) return false;
+  window.setTimeout(() => scrollTargetIntoPlace(target, gap), 0);
+  window.setTimeout(() => scrollTargetIntoPlace(target, gap), 80);
+  window.setTimeout(() => scrollTargetIntoPlace(target, gap), 260);
+  window.setTimeout(() => scrollTargetIntoPlace(target, gap), 700);
+  window.setTimeout(() => scrollTargetIntoPlace(target, gap), 1200);
+  return true;
+}
+
+function scrollToHash(hash) {
+  if (!hash || hash === "#") return false;
+  return lockScrollToTarget(document.querySelector(hash));
+}
+
+function scrollToCatalog() {
+  const heading = document.querySelector("#modules .section-heading") ?? document.querySelector("#modules");
+  return lockScrollToTarget(heading, window.innerWidth <= 640 ? 8 : 12);
 }
 
 function isCatalogNearViewport() {
@@ -372,6 +394,7 @@ function openDetails(item) {
 function applyStaticTranslations() {
   document.documentElement.lang = currentLanguage;
   document.title = getNestedText("meta.title");
+  setLegalLinks();
 
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = getNestedText("meta.description");
@@ -434,18 +457,6 @@ function bindEvents() {
     button.addEventListener("click", () => setLanguage(button.dataset.languageOption));
   });
 
-  copyEmailButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
-      const email = button.dataset.copyEmail;
-      try {
-        const copied = await copyTextToClipboard(email);
-        showToast(copied ? getNestedText("services.copySuccess") : getNestedText("services.copyFallback"));
-      } catch {
-        showToast(getNestedText("services.copyFallback"));
-      }
-    });
-  });
-
   window.addEventListener("scroll", () => {
     const isScrolled = window.scrollY > 18;
     siteHeader?.classList.toggle("is-scrolled", isScrolled);
@@ -461,8 +472,18 @@ function bindEvents() {
       const filter = link.dataset.filterLink;
       if (!filter) return;
       event.preventDefault();
-      document.querySelector("#modules").scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveFilter(filter, true);
+      setActiveFilter(filter, false);
+      window.setTimeout(() => scrollToCatalog(), 0);
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]:not([data-filter-link])').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const hash = link.getAttribute("href");
+      if (!hash || hash === "#") return;
+      if (!scrollToHash(hash)) return;
+      event.preventDefault();
+      window.history.pushState({}, "", hash);
     });
   });
 
@@ -496,7 +517,7 @@ function initMotion() {
 
   queueReveal([
     ...document.querySelectorAll(
-      ".hero-copy > *, .hero-media, .featured-card, .service-grid > *, .workflow-step, .paid-note, .roadmap-layout > *, .faq-grid > *"
+      ".hero-copy > *, .hero-media, .service-grid > *, .workflow-step, .paid-note, .roadmap-layout > *, .faq-grid > *"
     )
   ]);
 

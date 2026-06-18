@@ -6,51 +6,59 @@
     <title>Terms | OdooCustom</title>
     <meta name="description" content="Terms for the static OdooCustom.online website and Odoo Community add-on information." />
     <link rel="canonical" href="https://www.odoocustom.online/terms.html" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260617-ux-tz-v2-20" />
+    <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260617-ux-tz-v2-39" />
   </head>
-  <body class="legal-page">
+  <body class="legal-page" data-legal-page="terms">
     <header class="site-header">
-      <a class="brand" href="./index.html#top" aria-label="Community Plus Addons home">
+      <a class="brand" href="./index.html#top" data-index-anchor="#top" aria-label="Community Plus Addons home" data-legal-brand>
         <span class="brand-mark" aria-hidden="true">CP</span>
         <span class="brand-text">Community Plus Addons</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="./index.html#modules">Modules</a>
-        <a href="./index.html#services">Services</a>
-        <a href="./index.html#roadmap">Roadmap</a>
-        <a href="./index.html#faq">FAQ</a>
-        <a href="./index.html#contact">Contact</a>
+        <a href="./index.html#modules" data-index-anchor="#modules" data-legal-nav="modules">Modules</a>
+        <a href="./index.html#services" data-index-anchor="#services" data-legal-nav="services">Services</a>
+        <a href="./index.html#roadmap" data-index-anchor="#roadmap" data-legal-nav="roadmap">Roadmap</a>
+        <a href="./index.html#faq" data-index-anchor="#faq" data-legal-nav="faq">FAQ</a>
+        <a href="./index.html#contact" data-index-anchor="#contact" data-legal-nav="contact">Contact</a>
       </nav>
       <div class="header-controls">
-        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="language-switcher" aria-label="Language selector" data-legal-language-switcher>
+          <button class="language-button" type="button" data-language-option="en">EN</button>
+          <button class="language-button" type="button" data-language-option="ru">RU</button>
+        </div>
+        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-legal-github>GitHub</a>
       </div>
     </header>
 
     <main class="legal-page-main">
       <article class="container legal-doc">
-        <h1>Terms</h1>
-        <p>Last updated: June 17, 2026.</p>
+        <h1 data-legal-title>Terms</h1>
+        <p data-legal-updated>Last updated: June 17, 2026.</p>
 
-        <h2>English</h2>
-        <p>The website presents independent Odoo Community add-ons, planned Pro modules and custom setup services.</p>
-        <ul>
-          <li>Free modules are distributed through GitHub under the license stated in each module.</li>
-          <li>Pro modules shown as Coming Soon are roadmap items, not active purchases.</li>
-          <li>Custom services are discussed individually by email or external profile links.</li>
-          <li>This project is not affiliated with Odoo S.A.</li>
-          <li>Odoo is a trademark of Odoo S.A.</li>
-        </ul>
+        <section data-legal-lang="en">
+          <p>The website presents independent Odoo Community add-ons, planned Pro modules and custom setup services.</p>
+          <ul>
+            <li>Free modules are distributed through GitHub under the license stated in each module.</li>
+            <li>Pro modules shown as Coming Soon are roadmap items, not active purchases.</li>
+            <li>Custom services are discussed individually by email or external profile links.</li>
+            <li>This project is not affiliated with Odoo S.A.</li>
+            <li>Odoo is a trademark of Odoo S.A.</li>
+          </ul>
+        </section>
 
-        <h2>Русский</h2>
-        <p>Сайт показывает независимые модули для Odoo Community, планируемые Pro-модули и услуги настройки.</p>
-        <ul>
-          <li>Бесплатные модули распространяются через GitHub по лицензии, указанной в каждом модуле.</li>
-          <li>Pro-модули со статусом Coming Soon являются планом развития, а не активной покупкой.</li>
-          <li>Кастомные услуги обсуждаются индивидуально через email или внешние профильные ссылки.</li>
-          <li>Проект не связан с Odoo S.A.</li>
-          <li>Odoo является товарным знаком Odoo S.A.</li>
-        </ul>
+        <section data-legal-lang="ru" hidden>
+          <p>Сайт показывает независимые модули для Odoo Community, планируемые Pro-модули и услуги настройки.</p>
+          <ul>
+            <li>Бесплатные модули распространяются через GitHub по лицензии, указанной в каждом модуле.</li>
+            <li>Pro-модули со статусом Coming Soon являются планом развития, а не активной покупкой.</li>
+            <li>Кастомные услуги обсуждаются индивидуально через email или внешние профильные ссылки.</li>
+            <li>Проект не связан с Odoo S.A.</li>
+            <li>Odoo является товарным знаком Odoo S.A.</li>
+          </ul>
+        </section>
       </article>
     </main>
+    <script type="module" src="./assets/js/legal.js?v=20260617-ux-tz-v2-38"></script>
   </body>
 </html>

@@ -6,41 +6,49 @@
     <title>Refund Policy | OdooCustom</title>
     <meta name="description" content="Refund information for OdooCustom.online roadmap and service pages." />
     <link rel="canonical" href="https://www.odoocustom.online/refund.html" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260617-ux-tz-v2-20" />
+    <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260617-ux-tz-v2-39" />
   </head>
-  <body class="legal-page">
+  <body class="legal-page" data-legal-page="refund">
     <header class="site-header">
-      <a class="brand" href="./index.html#top" aria-label="Community Plus Addons home">
+      <a class="brand" href="./index.html#top" data-index-anchor="#top" aria-label="Community Plus Addons home" data-legal-brand>
         <span class="brand-mark" aria-hidden="true">CP</span>
         <span class="brand-text">Community Plus Addons</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="./index.html#modules">Modules</a>
-        <a href="./index.html#services">Services</a>
-        <a href="./index.html#roadmap">Roadmap</a>
-        <a href="./index.html#faq">FAQ</a>
-        <a href="./index.html#contact">Contact</a>
+        <a href="./index.html#modules" data-index-anchor="#modules" data-legal-nav="modules">Modules</a>
+        <a href="./index.html#services" data-index-anchor="#services" data-legal-nav="services">Services</a>
+        <a href="./index.html#roadmap" data-index-anchor="#roadmap" data-legal-nav="roadmap">Roadmap</a>
+        <a href="./index.html#faq" data-index-anchor="#faq" data-legal-nav="faq">FAQ</a>
+        <a href="./index.html#contact" data-index-anchor="#contact" data-legal-nav="contact">Contact</a>
       </nav>
       <div class="header-controls">
-        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="language-switcher" aria-label="Language selector" data-legal-language-switcher>
+          <button class="language-button" type="button" data-language-option="en">EN</button>
+          <button class="language-button" type="button" data-language-option="ru">RU</button>
+        </div>
+        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-legal-github>GitHub</a>
       </div>
     </header>
 
     <main class="legal-page-main">
       <article class="container legal-doc">
-        <h1>Refund Policy</h1>
-        <p>Last updated: June 17, 2026.</p>
+        <h1 data-legal-title>Refund Policy</h1>
+        <p data-legal-updated>Last updated: June 17, 2026.</p>
 
-        <h2>English</h2>
-        <p>This website does not process payments directly. Free modules are available through GitHub. Pro modules currently marked as Coming Soon are not sold through this website.</p>
-        <p>If a future purchase is made through an external platform, the refund rules of that platform and the terms of the specific offer apply.</p>
-        <p>For custom services, scope, delivery terms and payment conditions should be agreed before work starts.</p>
+        <section data-legal-lang="en">
+          <p>This website does not process payments directly. Free modules are available through GitHub. Pro modules currently marked as Coming Soon are not sold through this website.</p>
+          <p>If a future purchase is made through an external platform, the refund rules of that platform and the terms of the specific offer apply.</p>
+          <p>For custom services, scope, delivery terms and payment conditions should be agreed before work starts.</p>
+        </section>
 
-        <h2>Русский</h2>
-        <p>Этот сайт не принимает оплату напрямую. Бесплатные модули доступны через GitHub. Pro-модули со статусом Coming Soon сейчас не продаются через сайт.</p>
-        <p>Если будущая покупка будет оформлена через внешнюю платформу, применяются правила возврата этой платформы и условия конкретного предложения.</p>
-        <p>Для кастомных услуг объем работ, сроки и условия оплаты согласуются до начала работы.</p>
+        <section data-legal-lang="ru" hidden>
+          <p>Этот сайт не принимает оплату напрямую. Бесплатные модули доступны через GitHub. Pro-модули со статусом Coming Soon сейчас не продаются через сайт.</p>
+          <p>Если будущая покупка будет оформлена через внешнюю платформу, применяются правила возврата этой платформы и условия конкретного предложения.</p>
+          <p>Для кастомных услуг объем работ, сроки и условия оплаты согласуются до начала работы.</p>
+        </section>
       </article>
     </main>
+    <script type="module" src="./assets/js/legal.js?v=20260617-ux-tz-v2-38"></script>
   </body>
 </html>
