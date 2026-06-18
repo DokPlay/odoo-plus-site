@@ -14,7 +14,7 @@ const pageText = {
     navContact: "Contact",
     github: "GitHub",
     languageAria: "Language selector",
-    updated: "Last updated: June 17, 2026.",
+    updated: "Last updated: June 18, 2026.",
     pages: {
       privacy: {
         title: "Privacy Policy",
@@ -39,7 +39,7 @@ const pageText = {
     navContact: "Контакты",
     github: "GitHub",
     languageAria: "Выбор языка",
-    updated: "Обновлено: 17 июня 2026.",
+    updated: "Обновлено: 18 июня 2026.",
     pages: {
       privacy: {
         title: "Конфиденциальность",

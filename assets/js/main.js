@@ -126,6 +126,18 @@ function itemMatchesFilter(item, filter) {
   return filter === "all" || item.type === filter;
 }
 
+function trackEventForItem(item) {
+  if (item.type === "free") return "click_github";
+  if (item.type === "pro") return "click_pro_module";
+  if (item.type === "service") return "click_contact_email";
+  if (item.type === "roadmap") return "click_roadmap_card";
+  return "click_module_card";
+}
+
+function trackAttributes(item, eventName = trackEventForItem(item)) {
+  return ` data-track="${eventName}" data-track-label="${escapeHtml(item.technicalName)}" data-track-module="${escapeHtml(item.technicalName)}" data-track-type="${escapeHtml(item.type)}"`;
+}
+
 function ctaMarkup(item) {
   if (item.disabled) {
     return `<button class="card-cta is-disabled" type="button" disabled>${escapeHtml(item.ctaLabel)}</button>`;
@@ -134,7 +146,7 @@ function ctaMarkup(item) {
   const isAnchor = item.ctaUrl?.startsWith("#");
   const isMail = item.ctaUrl?.startsWith("mailto:");
   const target = isAnchor || isMail ? "" : ' target="_blank" rel="noopener noreferrer"';
-  return `<a class="card-cta" href="${escapeHtml(item.ctaUrl)}"${target}>${escapeHtml(item.ctaLabel)}</a>`;
+  return `<a class="card-cta" href="${escapeHtml(item.ctaUrl)}"${target}${trackAttributes(item)}>${escapeHtml(item.ctaLabel)}</a>`;
 }
 
 function catalogImagePath(item) {
@@ -168,7 +180,7 @@ function cardTemplate(item, index) {
       </dl>
       <div class="card-actions">
         ${ctaMarkup(item)}
-        <button class="details-button" type="button" data-details-index="${index}">${escapeHtml(getNestedText("catalog.details"))}</button>
+        <button class="details-button" type="button" data-details-index="${index}"${trackAttributes(item, "click_module_details")}>${escapeHtml(getNestedText("catalog.details"))}</button>
       </div>
     </article>
   `;
