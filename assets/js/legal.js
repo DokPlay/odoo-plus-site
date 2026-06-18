@@ -2,7 +2,7 @@ import {
   defaultLanguage,
   languageStorageKey,
   supportedLanguages
-} from "../../data/i18n.js?v=20260617-ux-tz-v2-38";
+} from "../../data/i18n.js?v=20260619-seo-1";
 
 const pageText = {
   en: {
@@ -84,8 +84,9 @@ function saveLanguage(language) {
 }
 
 function setIndexLinks(language) {
+  const homePath = language === "ru" ? "/ru/" : "/";
   document.querySelectorAll("[data-index-anchor]").forEach((link) => {
-    link.href = `./index.html?lang=${language}${link.dataset.indexAnchor}`;
+    link.href = `${homePath}${link.dataset.indexAnchor}`;
   });
 }
 
@@ -124,7 +125,7 @@ function applyLanguage(language, persist = true) {
   setIndexLinks(current);
 
   const url = new URL(window.location.href);
-  url.searchParams.set("lang", current);
+  url.searchParams.delete("lang");
   window.history.replaceState({}, "", url);
 }
 

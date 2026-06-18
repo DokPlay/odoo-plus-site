@@ -20,7 +20,7 @@ const boostyPostUrl = (slug) =>
   `${siteLinks.boostyProfile}/posts/${slug}`;
 
 const catalogImage = (technicalName) =>
-  `./assets/img/catalog/${technicalName}.png?v=20260617-ux-tz-v2-38`;
+  `/assets/img/catalog/${technicalName}.png?v=20260619-seo-1`;
 
 const catalogImageAlt = (title) =>
   `${title} preview`;

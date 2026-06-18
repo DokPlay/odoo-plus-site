@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Почему Odoo лучше дорабатывать модулями, а не менять ядро | OdooCustom</title>
+    <meta name="description" content="Почему доработки Odoo Community обычно лучше оформлять отдельными модулями, а не изменять файлы ядра Odoo." />
+    <link rel="canonical" href="https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" />
+    <link rel="alternate" hreflang="en" href="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <link rel="alternate" hreflang="ru" href="https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OdooCustom" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="Почему Odoo лучше дорабатывать модулями, а не менять ядро | OdooCustom" />
+    <meta property="og:description" content="Почему доработки Odoo Community обычно лучше оформлять отдельными модулями, а не изменять файлы ядра Odoo." />
+    <meta property="og:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <meta property="og:url" content="https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Почему Odoo лучше дорабатывать модулями, а не менять ядро | OdooCustom" />
+    <meta name="twitter:description" content="Почему доработки Odoo Community обычно лучше оформлять отдельными модулями, а не изменять файлы ядра Odoo." />
+    <meta name="twitter:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260619-seo-1" />
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.odoocustom.online/#website",
+      "name": "OdooCustom",
+      "alternateName": "Odoo Custom",
+      "url": "https://www.odoocustom.online/",
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.odoocustom.online/#organization",
+      "name": "OdooCustom",
+      "url": "https://www.odoocustom.online/",
+      "sameAs": [
+        "https://github.com/DokPlay/odoo-community-plus-addons",
+        "https://boosty.to/dokplaytv",
+        "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.odoocustom.online/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Модуль или правка ядра",
+          "item": "https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/"
+        }
+      ],
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "Article",
+      "headline": "Почему Odoo лучше дорабатывать модулями, а не менять ядро",
+      "description": "Почему доработки Odoo Community обычно лучше оформлять отдельными модулями, а не изменять файлы ядра Odoo.",
+      "author": {
+        "@id": "https://www.odoocustom.online/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.odoocustom.online/#organization"
+      },
+      "datePublished": "2026-06-19",
+      "dateModified": "2026-06-19",
+      "mainEntityOfPage": "https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/",
+      "inLanguage": "ru"
+    }
+  ]
+}</script>
+  </head>
+  <body class="content-page article-page" data-page="module-vs-core">
+    <header class="site-header">
+      <a class="brand" href="/ru/#top" aria-label="OdooCustom home">
+        <span class="brand-mark" aria-hidden="true">OC</span>
+        <span class="brand-text">OdooCustom</span>
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="/ru/#modules" data-track="click_nav_modules">Модули</a>
+        <a href="/ru/#services" data-track="click_nav_services">Услуги</a>
+        <a href="/ru/#blog" data-track="click_nav_blog">Блог</a>
+        <a href="/ru/#roadmap" data-track="click_nav_roadmap">План</a>
+        <a href="/ru/#faq" data-track="click_nav_faq">FAQ</a>
+        <a href="/ru/#contact" data-track="click_nav_contact">Контакты</a>
+      </nav>
+      <div class="header-controls">
+        <div class="language-switcher" aria-label="Выбор языка">
+          <a class="language-button" href="/blog/odoo-community-customization-module-vs-core-modification/" hreflang="en" data-track="language_switch_en">EN</a>
+          <a class="language-button is-active" href="/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" hreflang="ru" data-track="language_switch_ru">RU</a>
+        </div>
+        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="header_github">GitHub</a>
+      </div>
+    </header>
+    <main class="content-page-main" id="top">
+      <section class="content-hero section-band">
+        <div class="container content-hero-layout">
+          <div>
+            <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <a href="/ru/">Главная</a>
+      <span aria-hidden="true">/</span>
+      <span>Модуль или правка ядра</span>
+    </nav>
+            <h1>Почему Odoo лучше дорабатывать модулями, а не менять ядро</h1>
+            <p class="hero-subtitle">Отдельный модуль делает бизнес-изменение видимым, проверяемым и более простым для удаления или обновления.</p>
+            <div class="meta-strip">
+              <span>Гайд Odoo 19</span>
+              <span>2026-06-19</span>
+              <span>Odoo Community</span>
+            </div>
+          </div>
+          <aside class="content-summary">
+            <span class="badge badge-roadmap">Статья</span>
+            <p>Почему доработки Odoo Community обычно лучше оформлять отдельными модулями, а не изменять файлы ядра Odoo.</p>
+          </aside>
+        </div>
+      </section>
+      <div class="container content-layout">
+        <article class="content-main">
+          <section class="rich-section"><h2>Почему модули безопаснее</h2><ul class="check-list"><li>Кастомное поведение остается вне исходников Odoo.</li>
+<li>Установку и откат проще понять.</li>
+<li>Зависимости и права доступа объявляются явно.</li></ul></section>
+<section class="rich-section"><h2>Почему правки ядра рискованны</h2><ul class="check-list"><li>Обновления могут перезаписать изменения.</li>
+<li>Следующий разработчик может не знать, что именно было изменено.</li>
+<li>Тестирование сложнее, потому что доработка спрятана внутри стандартного кода.</li></ul></section>
+<section class="rich-section"><h2>Лучший паттерн доработки</h2><ul class="check-list"><li>Используйте inheritance для models и views.</li>
+<li>Держите data и security files внутри модуля.</li>
+<li>Документируйте бизнес-причину в notes или README модуля.</li></ul></section>
+          <section class="rich-section">
+            <h2>Команды, скриншот и типовые ошибки</h2>
+            <p>Ниже практический блок, который помогает проверить шаги без догадок: команда, визуальный ориентир и ошибки, которые стоит искать первыми.</p>
+            <div class="image-pair">
+              <img src="/assets/img/catalog/custom_module_development-ru.png?v=20260619-seo-1" width="1000" height="660" alt="Модуль или правка ядра screenshot" loading="lazy" />
+              <img src="/assets/img/module-github-link.png?v=20260619-seo-1" width="1200" height="675" alt="Пример ссылки на GitHub" loading="lazy" />
+            </div>
+            <pre class="code-block"><code>grep -R &quot;_inherit\|inherit_id&quot; custom_addons/
+# prefer inheritance in a separate addon over editing Odoo core</code></pre>
+            <ul class="check-list"><li>Odoo не видит модуль из-за неверного addons path или лишней вложенной папки.</li>
+<li>Manifest содержит зависимость, которой нет в текущем окружении.</li>
+<li>Первый настоящий error в логе скрыт выше каскадных ошибок загрузки.</li></ul>
+          </section>
+          <section class="rich-section">
+            <h2>Следующий шаг</h2>
+            <p>Для большинства улучшений Odoo Community стоит начинать с чистого кастомного модуля.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="mailto:serrggeejjj@gmail.com?subject=Odoo%20custom%20module%20request" data-track="click_contact_email" data-track-label="module-vs-core_cta">Написать по задаче</a>
+              <a class="button button-secondary" href="/ru/modules/module-health-checker/">Проверка модулей</a>
+            </div>
+          </section>
+        </article>
+        <aside class="content-aside">
+          <div class="aside-panel">
+            <h2>Похожие материалы</h2>
+            <div class="related-list">
+              <a class="mini-card" href="/ru/blog/kak-ustanovit-modul-odoo-19/"><h3>Установка модуля</h3><p>Практический чек-лист установки кастомного модуля Odoo 19 Community, обновления списка приложений и проверки типовых ошибок.</p></a>
+<a class="mini-card" href="/ru/blog/kak-obnovit-spisok-prilozheniy-odoo-19/"><h3>Обновление списка приложений</h3><p>Как заставить Odoo 19 увидеть новый кастомный модуль после копирования в addons path.</p></a>
+<a class="mini-card" href="/ru/blog/kak-proverit-manifest-modulya-odoo/"><h3>Чек-лист manifest</h3><p>Чек-лист __manifest__.py для Odoo 19: зависимости, data files, лицензия, версия и website.</p></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="/ru/#top" aria-label="OdooCustom home">
+            <span class="brand-mark" aria-hidden="true">OC</span>
+            <span class="brand-text">OdooCustom</span>
+          </a>
+          <p>Независимые модули Odoo Community, кастомная разработка и практичные услуги настройки.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="footer_github">GitHub</a>
+          <a href="https://boosty.to/dokplaytv" target="_blank" rel="noopener noreferrer" data-track="click_boosty" data-track-label="footer_boosty">Boosty</a>
+          <a href="mailto:serrggeejjj@gmail.com" data-track="click_contact_email" data-track-label="footer_email">serrggeejjj@gmail.com</a>
+          <a href="https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/" target="_blank" rel="noopener noreferrer" data-track="click_linkedin" data-track-label="footer_linkedin">LinkedIn</a>
+          <a href="/privacy.html" data-track="click_legal_link" data-track-label="privacy">Конфиденциальность</a>
+          <a href="/terms.html" data-track="click_legal_link" data-track-label="terms">Условия</a>
+          <a href="/refund.html" data-track="click_legal_link" data-track-label="refund">Возврат</a>
+          <span>Copyright 2026 DokPlay</span>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/assets/js/analytics.js?v=20260618-consent-mode-1"></script>
+  </body>
+</html>

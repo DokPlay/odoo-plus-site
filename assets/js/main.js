@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260617-ux-tz-v2-38";
+} from "../../data/modules.js?v=20260619-seo-1";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,9 +13,9 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260617-ux-tz-v2-38";
+} from "../../data/i18n.js?v=20260619-seo-1";
 
-const assetVersion = "20260617-ux-tz-v2-38";
+const assetVersion = "20260619-seo-1";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -72,21 +72,8 @@ function normalizeLanguage(language) {
   return supportedLanguages.includes(normalized) ? normalized : null;
 }
 
-function languageFromQuery() {
-  const params = new URLSearchParams(window.location.search);
-  return normalizeLanguage(params.get("lang"));
-}
-
-function languageFromStorage() {
-  try {
-    return normalizeLanguage(window.localStorage.getItem(languageStorageKey));
-  } catch {
-    return null;
-  }
-}
-
 function resolveInitialLanguage() {
-  return languageFromQuery() || languageFromStorage() || defaultLanguage;
+  return normalizeLanguage(document.documentElement.lang) || (window.location.pathname.startsWith("/ru/") ? "ru" : defaultLanguage);
 }
 
 function saveLanguage(language) {
@@ -118,7 +105,7 @@ function setConfiguredLinks() {
 
 function setLegalLinks() {
   document.querySelectorAll("[data-legal-link]").forEach((link) => {
-    link.href = `./${link.dataset.legalLink}.html?lang=${currentLanguage}`;
+    link.href = `/${link.dataset.legalLink}.html`;
   });
 }
 
@@ -151,7 +138,7 @@ function ctaMarkup(item) {
 
 function catalogImagePath(item) {
   const languageSuffix = currentLanguage === "ru" ? "-ru" : "";
-  return `./assets/img/catalog/${item.technicalName}${languageSuffix}.png?v=${assetVersion}`;
+  return `/assets/img/catalog/${item.technicalName}${languageSuffix}.png?v=${assetVersion}`;
 }
 
 function cardImageMarkup(item) {
@@ -456,7 +443,7 @@ function setLanguage(language, persist = true) {
   }
 
   const url = new URL(window.location.href);
-  url.searchParams.set("lang", normalized);
+  url.searchParams.delete("lang");
   window.history.replaceState({}, "", url);
 }
 

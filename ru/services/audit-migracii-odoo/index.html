@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Аудит миграции Odoo и кастомных модулей | OdooCustom</title>
+    <meta name="description" content="Технический аудит кастомных модулей Odoo перед обновлением с Odoo 18 на Odoo 19 или переносом базы." />
+    <link rel="canonical" href="https://www.odoocustom.online/ru/services/audit-migracii-odoo/" />
+    <link rel="alternate" hreflang="en" href="https://www.odoocustom.online/services/odoo-migration-review/" />
+    <link rel="alternate" hreflang="ru" href="https://www.odoocustom.online/ru/services/audit-migracii-odoo/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.odoocustom.online/services/odoo-migration-review/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OdooCustom" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="Аудит миграции Odoo и кастомных модулей | OdooCustom" />
+    <meta property="og:description" content="Технический аудит кастомных модулей Odoo перед обновлением с Odoo 18 на Odoo 19 или переносом базы." />
+    <meta property="og:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <meta property="og:url" content="https://www.odoocustom.online/ru/services/audit-migracii-odoo/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Аудит миграции Odoo и кастомных модулей | OdooCustom" />
+    <meta name="twitter:description" content="Технический аудит кастомных модулей Odoo перед обновлением с Odoo 18 на Odoo 19 или переносом базы." />
+    <meta name="twitter:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260619-seo-1" />
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.odoocustom.online/#website",
+      "name": "OdooCustom",
+      "alternateName": "Odoo Custom",
+      "url": "https://www.odoocustom.online/",
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.odoocustom.online/#organization",
+      "name": "OdooCustom",
+      "url": "https://www.odoocustom.online/",
+      "sameAs": [
+        "https://github.com/DokPlay/odoo-community-plus-addons",
+        "https://boosty.to/dokplaytv",
+        "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.odoocustom.online/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Аудит миграции Odoo",
+          "item": "https://www.odoocustom.online/ru/services/audit-migracii-odoo/"
+        }
+      ],
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "Service",
+      "name": "Аудит миграции Odoo и кастомных модулей",
+      "description": "Технический аудит кастомных модулей Odoo перед обновлением с Odoo 18 на Odoo 19 или переносом базы.",
+      "provider": {
+        "@id": "https://www.odoocustom.online/#organization"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": "миграция Odoo 18 на 19",
+      "url": "https://www.odoocustom.online/ru/services/audit-migracii-odoo/",
+      "inLanguage": "ru"
+    }
+  ]
+}</script>
+  </head>
+  <body class="content-page" data-page="migration">
+    <header class="site-header">
+      <a class="brand" href="/ru/#top" aria-label="OdooCustom home">
+        <span class="brand-mark" aria-hidden="true">OC</span>
+        <span class="brand-text">OdooCustom</span>
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="/ru/#modules" data-track="click_nav_modules">Модули</a>
+        <a href="/ru/#services" data-track="click_nav_services">Услуги</a>
+        <a href="/ru/#blog" data-track="click_nav_blog">Блог</a>
+        <a href="/ru/#roadmap" data-track="click_nav_roadmap">План</a>
+        <a href="/ru/#faq" data-track="click_nav_faq">FAQ</a>
+        <a href="/ru/#contact" data-track="click_nav_contact">Контакты</a>
+      </nav>
+      <div class="header-controls">
+        <div class="language-switcher" aria-label="Выбор языка">
+          <a class="language-button" href="/services/odoo-migration-review/" hreflang="en" data-track="language_switch_en">EN</a>
+          <a class="language-button is-active" href="/ru/services/audit-migracii-odoo/" hreflang="ru" data-track="language_switch_ru">RU</a>
+        </div>
+        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="header_github">GitHub</a>
+      </div>
+    </header>
+    <main class="content-page-main" id="top">
+      <section class="content-hero section-band">
+        <div class="container content-hero-layout">
+          <div>
+            <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <a href="/ru/">Главная</a>
+      <span aria-hidden="true">/</span>
+      <span>Аудит миграции Odoo</span>
+    </nav>
+            <h1>Аудит миграции Odoo и кастомных модулей</h1>
+            <p class="hero-subtitle">До обновления лучше найти риски модулей, зависимостей и данных, чем обнаружить их в момент реальной миграции.</p>
+            <p class="hero-body">Аудит миграции - это этап анализа, а не слепое изменение production. Проверяются установленные модули, кастомный код, зависимости, views, manifests и вероятные блокеры обновления.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="mailto:serrggeejjj@gmail.com?subject=Odoo%20custom%20module%20request" data-track="click_contact_email" data-track-label="migration_hero">Запросить аудит миграции</a>
+              <a class="button button-secondary" href="/ru/#services">Все услуги</a>
+            </div>
+          </div>
+          <aside class="content-summary" aria-label="Кратко">
+            <span class="badge badge-service">Услуга</span>
+            <dl>
+              <div><dt>Кластер</dt><dd>миграция Odoo 18 на 19</dd></div>
+              <div><dt>Версии</dt><dd>Odoo 17.0-19.0</dd></div>
+              <div><dt>Фокус</dt><dd>Odoo Community</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+      <div class="container content-layout">
+        <article class="content-main">
+          <section class="rich-section">
+            <h2>Фокус аудита</h2>
+            <ul class="check-list"><li>Инвентаризация установленных модулей и зависимостей</li>
+<li>Проверка manifest и совместимости версий</li>
+<li>Риски кастомных модулей при переходе на Odoo 19</li>
+<li>Очевидные изменения views, models и security, которые могут сломаться</li>
+<li>Приоритетный список работ до полноценной миграции</li></ul>
+          </section>
+          <section class="rich-section">
+            <h2>Результат</h2>
+            <ul class="check-list"><li>Понятный список проблем по критичности</li>
+<li>Короткая рекомендация по следующим шагам</li>
+<li>Разделение быстрых правок, рискованных рефакторингов и неизвестных</li>
+<li>Без production-миграции, если она отдельно не согласована</li></ul>
+          </section>
+          <section class="rich-section">
+            <h2>Пример результата</h2>
+            <p>Результат оформляется как отдельный модуль, настройка, отчет или аудит с понятными ограничениями, ссылками на связанные страницы и дальнейшими шагами.</p>
+            <div class="image-pair">
+              <img src="/assets/img/catalog/migration_check-ru.png?v=20260619-seo-1" width="1000" height="660" alt="Аудит миграции Odoo interface example" loading="lazy" />
+              <img src="/assets/img/site-desktop-catalog.png?v=20260619-seo-1" width="1365" height="768" alt="Пример каталога OdooCustom" loading="lazy" />
+            </div>
+          </section>
+          <section class="rich-section">
+            <h2>Процесс аудита</h2>
+            <ol class="number-list"><li>Собираем целевую версию Odoo и список модулей.</li>
+<li>Проверяем кастомные модули и известные риски зависимостей.</li>
+<li>Фиксируем вероятные проблемы совместимости с Odoo 19.</li>
+<li>Передаем итог по готовности к миграции.</li></ol>
+          </section>
+          <section class="rich-section">
+            <h2>Срок оценки</h2>
+            <p>Первичная оценка готовится после получения версии Odoo, списка установленных приложений, скриншотов процесса и примеров записей. Если данных не хватает, сначала фиксируется короткий список уточнений.</p>
+          </section>
+          <section class="rich-section">
+            <h2>Ограничения</h2>
+            <ul class="check-list"><li>Сам аудит не гарантирует полноценную успешную миграцию.</li>
+<li>Глубокая миграция данных, сверка учета и production-cutover - отдельные задачи.</li>
+<li>Сторонние закрытые модули можно оценивать только по коду или документации, которыми вы вправе делиться.</li></ul>
+          </section>
+          <section class="rich-section">
+            <h2>FAQ</h2>
+            <div class="faq-list"><details class="faq-item"><summary>Это то же самое, что миграция?</summary><p>Нет. Эта страница про этап анализа до реализации.</p></details>
+<details class="faq-item"><summary>Можно проверить только кастомные модули?</summary><p>Да. Часто это самый безопасный первый шаг.</p></details>
+<details class="faq-item"><summary>Нужна выгрузка базы?</summary><p>Первый обзор обычно можно начать с кода модулей и метаданных; доступ к базе обсуждается отдельно.</p></details></div>
+          </section>
+        </article>
+        <aside class="content-aside">
+          <div class="aside-panel">
+            <h2>Связанные страницы</h2>
+            <div class="related-list"><a class="mini-card" href="/ru/modules/module-health-checker/"><h3>Проверка модулей</h3><p>Бесплатный модуль Odoo 19 Community для проверки установленных модулей, метаданных, лицензий, версий и зависимостей.</p></a>
+<a class="mini-card" href="/ru/services/razrabotka-moduley-odoo/"><h3>Разработка модулей Odoo</h3><p>Приватные модули Odoo 19 Community для отчетов, процессов, интеграций и бизнес-логики под конкретную базу.</p></a>
+<a class="mini-card" href="/ru/services/nastroyka-odoo-community/"><h3>Настройка Odoo Community</h3><p>Настройка Odoo 19 Community, установка модулей, проверка окружения и практичная конфигурация.</p></a></div>
+          </div>
+        </aside>
+      </div>
+      <section class="content-cta">
+        <div class="container legal-layout">
+          <strong>Запросить аудит миграции</strong>
+          <a class="button button-primary" href="mailto:serrggeejjj@gmail.com?subject=Odoo%20custom%20module%20request" data-track="click_contact_email" data-track-label="migration_bottom">Написать</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="/ru/#top" aria-label="OdooCustom home">
+            <span class="brand-mark" aria-hidden="true">OC</span>
+            <span class="brand-text">OdooCustom</span>
+          </a>
+          <p>Независимые модули Odoo Community, кастомная разработка и практичные услуги настройки.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="footer_github">GitHub</a>
+          <a href="https://boosty.to/dokplaytv" target="_blank" rel="noopener noreferrer" data-track="click_boosty" data-track-label="footer_boosty">Boosty</a>
+          <a href="mailto:serrggeejjj@gmail.com" data-track="click_contact_email" data-track-label="footer_email">serrggeejjj@gmail.com</a>
+          <a href="https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/" target="_blank" rel="noopener noreferrer" data-track="click_linkedin" data-track-label="footer_linkedin">LinkedIn</a>
+          <a href="/privacy.html" data-track="click_legal_link" data-track-label="privacy">Конфиденциальность</a>
+          <a href="/terms.html" data-track="click_legal_link" data-track-label="terms">Условия</a>
+          <a href="/refund.html" data-track="click_legal_link" data-track-label="refund">Возврат</a>
+          <span>Copyright 2026 DokPlay</span>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/assets/js/analytics.js?v=20260618-consent-mode-1"></script>
+  </body>
+</html>

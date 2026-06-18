@@ -3,7 +3,7 @@ export const defaultLanguage = "en";
 export const languageStorageKey = "cp_site_language_v2";
 
 const catalogImage = (technicalName) =>
-  `./assets/img/catalog/${technicalName}-ru.png?v=20260617-ux-tz-v2-38`;
+  `/assets/img/catalog/${technicalName}-ru.png?v=20260619-seo-1`;
 
 const catalogImageAlt = (title) =>
   `Превью ${title}`;
@@ -31,11 +31,11 @@ export const russianTimeZones = [
 
 export const uiText = {
   en: {
-    "meta.title": "Custom Odoo 19 Community Addons | Free & Pro Modules",
+    "meta.title": "Odoo 19 Community Addons & Custom Module Development | OdooCustom",
     "meta.description":
-      "Free open-source and planned Pro addons for Odoo 19 Community: module health checks, reports, dashboards, migration tools and custom setup.",
-    "meta.ogDescription": "Free open-source and planned Pro addons for Odoo 19 Community: module health checks, reports, dashboards, migration tools and custom setup.",
-    "brand.aria": "Community Plus Addons home",
+      "Free Odoo 19 Community addons and custom module development: reports, migration reviews, dashboards, setup and workflow automation.",
+    "meta.ogDescription": "Free Odoo 19 Community addons and custom module development: reports, migration reviews, dashboards, setup and workflow automation.",
+    "brand.aria": "OdooCustom home",
     "nav.aria": "Primary navigation",
     "nav.modules": "Modules",
     "nav.services": "Services",
@@ -46,7 +46,7 @@ export const uiText = {
     "language.aria": "Language selector",
     "language.en": "EN",
     "language.ru": "RU",
-    "hero.title": "Custom Odoo 19 Community Addons",
+    "hero.title": "Odoo 19 Community Addons & Custom Module Development",
     "hero.subtitle": "Free open-source tools, planned Pro modules and custom setup for stable Odoo installations.",
     "hero.body":
       "Practical addons for developers, integrators and small businesses: module checks, reports, dashboards, migration tools and private workflow improvements without unnecessary complexity.",
@@ -163,11 +163,11 @@ export const uiText = {
     "dialog.close": "Close"
   },
   ru: {
-    "meta.title": "Кастомные модули Odoo 19 Community | бесплатные и Pro-модули",
+    "meta.title": "Модули Odoo 19 Community и разработка на заказ | OdooCustom",
     "meta.description":
-      "Бесплатные open-source и плановые Pro-модули для Odoo 19 Community: проверка модулей, отчеты, панели, миграция и кастомная настройка.",
-    "meta.ogDescription": "Бесплатные open-source и плановые Pro-модули для Odoo 19 Community: проверка модулей, отчеты, панели, миграция и кастомная настройка.",
-    "brand.aria": "Главная Community Plus Addons",
+      "Бесплатные модули Odoo 19 Community, доработка, отчеты, аудит миграции, настройка и разработка кастомных бизнес-процессов.",
+    "meta.ogDescription": "Бесплатные модули Odoo 19 Community, доработка, отчеты, аудит миграции, настройка и разработка кастомных бизнес-процессов.",
+    "brand.aria": "Главная OdooCustom",
     "nav.aria": "Основная навигация",
     "nav.modules": "Модули",
     "nav.services": "Услуги",
@@ -178,7 +178,7 @@ export const uiText = {
     "language.aria": "Выбор языка",
     "language.en": "EN",
     "language.ru": "RU",
-    "hero.title": "Кастомные модули Odoo 19 Community",
+    "hero.title": "Модули Odoo 19 Community и разработка на заказ",
     "hero.subtitle": "Бесплатные open-source инструменты, плановые Pro-модули и кастомная настройка для стабильных установок Odoo.",
     "hero.body":
       "Практичные дополнения для разработчиков, интеграторов и малого бизнеса: проверки модулей, отчеты, панели, инструменты миграции и приватные улучшения процессов без лишней сложности.",

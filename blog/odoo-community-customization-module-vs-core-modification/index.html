@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Odoo Community Customization: Module vs Core Modification | OdooCustom</title>
+    <meta name="description" content="Why Odoo Community customizations should usually be delivered as separate modules instead of changing Odoo core files." />
+    <link rel="canonical" href="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <link rel="alternate" hreflang="en" href="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <link rel="alternate" hreflang="ru" href="https://www.odoocustom.online/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OdooCustom" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:title" content="Odoo Community Customization: Module vs Core Modification | OdooCustom" />
+    <meta property="og:description" content="Why Odoo Community customizations should usually be delivered as separate modules instead of changing Odoo core files." />
+    <meta property="og:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <meta property="og:url" content="https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Odoo Community Customization: Module vs Core Modification | OdooCustom" />
+    <meta name="twitter:description" content="Why Odoo Community customizations should usually be delivered as separate modules instead of changing Odoo core files." />
+    <meta name="twitter:image" content="https://www.odoocustom.online/assets/img/hero-preview.png" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260619-seo-1" />
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.odoocustom.online/#website",
+      "name": "OdooCustom",
+      "alternateName": "Odoo Custom",
+      "url": "https://www.odoocustom.online/",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.odoocustom.online/#organization",
+      "name": "OdooCustom",
+      "url": "https://www.odoocustom.online/",
+      "sameAs": [
+        "https://github.com/DokPlay/odoo-community-plus-addons",
+        "https://boosty.to/dokplaytv",
+        "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.odoocustom.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Module vs core",
+          "item": "https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/"
+        }
+      ],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "headline": "Odoo Community Customization: Module vs Core Modification",
+      "description": "Why Odoo Community customizations should usually be delivered as separate modules instead of changing Odoo core files.",
+      "author": {
+        "@id": "https://www.odoocustom.online/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.odoocustom.online/#organization"
+      },
+      "datePublished": "2026-06-19",
+      "dateModified": "2026-06-19",
+      "mainEntityOfPage": "https://www.odoocustom.online/blog/odoo-community-customization-module-vs-core-modification/",
+      "inLanguage": "en"
+    }
+  ]
+}</script>
+  </head>
+  <body class="content-page article-page" data-page="module-vs-core">
+    <header class="site-header">
+      <a class="brand" href="/#top" aria-label="OdooCustom home">
+        <span class="brand-mark" aria-hidden="true">OC</span>
+        <span class="brand-text">OdooCustom</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/#modules" data-track="click_nav_modules">Modules</a>
+        <a href="/#services" data-track="click_nav_services">Services</a>
+        <a href="/#blog" data-track="click_nav_blog">Blog</a>
+        <a href="/#roadmap" data-track="click_nav_roadmap">Roadmap</a>
+        <a href="/#faq" data-track="click_nav_faq">FAQ</a>
+        <a href="/#contact" data-track="click_nav_contact">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <div class="language-switcher" aria-label="Language selector">
+          <a class="language-button is-active" href="/blog/odoo-community-customization-module-vs-core-modification/" hreflang="en" data-track="language_switch_en">EN</a>
+          <a class="language-button" href="/ru/blog/pochemu-odoo-luchshe-dorabatyvat-modulyami-a-ne-menyat-yadro/" hreflang="ru" data-track="language_switch_ru">RU</a>
+        </div>
+        <a class="header-action" href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="header_github">GitHub</a>
+      </div>
+    </header>
+    <main class="content-page-main" id="top">
+      <section class="content-hero section-band">
+        <div class="container content-hero-layout">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Module vs core</span>
+    </nav>
+            <h1>Odoo Community Customization: Module vs Core Modification</h1>
+            <p class="hero-subtitle">A separate module keeps the business change visible, reviewable and easier to remove or upgrade later.</p>
+            <div class="meta-strip">
+              <span>Odoo 19 guide</span>
+              <span>2026-06-19</span>
+              <span>Odoo Community</span>
+            </div>
+          </div>
+          <aside class="content-summary">
+            <span class="badge badge-roadmap">Article</span>
+            <p>Why Odoo Community customizations should usually be delivered as separate modules instead of changing Odoo core files.</p>
+          </aside>
+        </div>
+      </section>
+      <div class="container content-layout">
+        <article class="content-main">
+          <section class="rich-section"><h2>Why modules are safer</h2><ul class="check-list"><li>They keep custom behavior outside the Odoo source tree.</li>
+<li>They make installation and rollback easier to understand.</li>
+<li>They can declare dependencies and access rules explicitly.</li></ul></section>
+<section class="rich-section"><h2>When core edits become risky</h2><ul class="check-list"><li>Updates may overwrite changes.</li>
+<li>Future developers may not know what was changed.</li>
+<li>Testing becomes harder because the customization is hidden inside standard code.</li></ul></section>
+<section class="rich-section"><h2>Better customization pattern</h2><ul class="check-list"><li>Use inheritance for models and views.</li>
+<li>Keep data and security files inside the module.</li>
+<li>Document the business reason in the module notes or README.</li></ul></section>
+          <section class="rich-section">
+            <h2>Commands, screenshot and common errors</h2>
+            <p>The block below keeps the article practical: one command/check, one visual reference and the first errors to inspect.</p>
+            <div class="image-pair">
+              <img src="/assets/img/catalog/custom_module_development.png?v=20260619-seo-1" width="1000" height="660" alt="Module vs core screenshot" loading="lazy" />
+              <img src="/assets/img/module-github-link.png?v=20260619-seo-1" width="1200" height="675" alt="GitHub link example" loading="lazy" />
+            </div>
+            <pre class="code-block"><code>grep -R &quot;_inherit\|inherit_id&quot; custom_addons/
+# prefer inheritance in a separate addon over editing Odoo core</code></pre>
+            <ul class="check-list"><li>Odoo cannot see the module because the addons path or folder nesting is wrong.</li>
+<li>The manifest declares a dependency that is missing from the current environment.</li>
+<li>The first real log error is often above later cascade errors.</li></ul>
+          </section>
+          <section class="rich-section">
+            <h2>Next step</h2>
+            <p>For most Odoo Community improvements, start with a clean custom module.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="mailto:serrggeejjj@gmail.com?subject=Odoo%20custom%20module%20request" data-track="click_contact_email" data-track-label="module-vs-core_cta">Ask about your task</a>
+              <a class="button button-secondary" href="/modules/module-health-checker/">Module Health Checker</a>
+            </div>
+          </section>
+        </article>
+        <aside class="content-aside">
+          <div class="aside-panel">
+            <h2>Related guides</h2>
+            <div class="related-list">
+              <a class="mini-card" href="/blog/how-to-install-custom-addon-odoo-19/"><h3>Install custom addons</h3><p>A practical checklist for installing a custom Odoo 19 Community addon, updating the apps list and checking common mistakes.</p></a>
+<a class="mini-card" href="/blog/how-to-update-apps-list-odoo-19/"><h3>Update Apps List</h3><p>How to make Odoo 19 detect a new custom module after copying it into an addons path.</p></a>
+<a class="mini-card" href="/blog/odoo-19-module-manifest-checklist/"><h3>Manifest checklist</h3><p>A checklist for Odoo 19 __manifest__.py files: dependencies, data files, license, version and website fields.</p></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer" id="contact">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="/#top" aria-label="OdooCustom home">
+            <span class="brand-mark" aria-hidden="true">OC</span>
+            <span class="brand-text">OdooCustom</span>
+          </a>
+          <p>Independent Odoo Community addons, custom development and practical setup services.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/DokPlay/odoo-community-plus-addons" target="_blank" rel="noopener noreferrer" data-track="click_github" data-track-label="footer_github">GitHub</a>
+          <a href="https://boosty.to/dokplaytv" target="_blank" rel="noopener noreferrer" data-track="click_boosty" data-track-label="footer_boosty">Boosty</a>
+          <a href="mailto:serrggeejjj@gmail.com" data-track="click_contact_email" data-track-label="footer_email">serrggeejjj@gmail.com</a>
+          <a href="https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/" target="_blank" rel="noopener noreferrer" data-track="click_linkedin" data-track-label="footer_linkedin">LinkedIn</a>
+          <a href="/privacy.html" data-track="click_legal_link" data-track-label="privacy">Privacy</a>
+          <a href="/terms.html" data-track="click_legal_link" data-track-label="terms">Terms</a>
+          <a href="/refund.html" data-track="click_legal_link" data-track-label="refund">Refund</a>
+          <span>Copyright 2026 DokPlay</span>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/assets/js/analytics.js?v=20260618-consent-mode-1"></script>
+  </body>
+</html>
