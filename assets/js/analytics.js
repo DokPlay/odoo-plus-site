@@ -22,6 +22,7 @@ const consentCopy = {
 };
 
 let analyticsReady = false;
+let ga4Loaded = false;
 const trackedScrollDepths = new Set();
 
 function configured(value, placeholderPrefix) {
@@ -64,12 +65,43 @@ function loadScript(src, attributes = {}) {
   document.head.append(script);
 }
 
-function loadGa4() {
-  if (!hasGa4() || window.gtag) return;
+function ensureGtag() {
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
-    window.dataLayer.push(arguments);
+  if (typeof window.gtag !== "function") {
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  }
+}
+
+function googleConsentState(consentValue) {
+  return {
+    analytics_storage: consentValue === consentAccepted ? "granted" : "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied"
   };
+}
+
+function setDefaultGoogleConsent() {
+  if (!hasGa4()) return;
+  ensureGtag();
+  window.gtag("consent", "default", {
+    ...googleConsentState(getStoredConsent()),
+    wait_for_update: 500
+  });
+}
+
+function updateGoogleConsent(consentValue) {
+  if (!hasGa4()) return;
+  ensureGtag();
+  window.gtag("consent", "update", googleConsentState(consentValue));
+}
+
+function loadGa4() {
+  if (!hasGa4() || ga4Loaded) return;
+  ga4Loaded = true;
+  ensureGtag();
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analyticsConfig.ga4MeasurementId)}`);
   window.gtag("js", new Date());
   window.gtag("config", analyticsConfig.ga4MeasurementId, {
@@ -166,6 +198,7 @@ function renderConsentBanner() {
 
   banner.querySelector("[data-analytics-accept]").addEventListener("click", () => {
     setStoredConsent(consentAccepted);
+    updateGoogleConsent(consentAccepted);
     enableAnalytics();
     trackEvent("analytics_consent_accept", {
       event_label: currentLanguage()
@@ -175,16 +208,19 @@ function renderConsentBanner() {
 
   banner.querySelector("[data-analytics-reject]").addEventListener("click", () => {
     setStoredConsent(consentRejected);
+    updateGoogleConsent(consentRejected);
     removeConsentBanner();
   });
 
   document.body.append(banner);
 }
 
+setDefaultGoogleConsent();
 bindTrackedClicks();
 bindScrollDepth();
 
 if (getStoredConsent() === consentAccepted) {
+  updateGoogleConsent(consentAccepted);
   enableAnalytics();
 } else {
   renderConsentBanner();
