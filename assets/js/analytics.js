@@ -1,6 +1,6 @@
 const analyticsConfig = {
   // Fill these IDs to activate tracking. Empty values keep external analytics disabled.
-  ga4MeasurementId: "",
+  ga4MeasurementId: "G-QYCQDM5F0C",
   clarityProjectId: ""
 };
 
