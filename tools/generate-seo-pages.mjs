@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const siteOrigin = "https://www.odoocustom.online";
-const assetVersion = "20260619-seo-1";
+const assetVersion = "20260619-pro-live-1";
 const lastmod = "2026-06-19";
 
 const externalLinks = {
@@ -1017,7 +1017,7 @@ const catalogItems = [
   ["free", "cp_duplicate_checker", "Duplicate Finder", "Поиск дублей", "Coming soon", "Скоро", "Free", "Бесплатно", "Odoo 19.0 Community", "Find potential duplicate partners, products and operational records.", "Поиск возможных дублей партнеров, товаров и операционных записей."],
   ["free", "cp_export_xlsx_lite", "Export XLSX Lite", "Экспорт XLSX Lite", "Coming soon", "Скоро", "Free", "Бесплатно", "Odoo 19.0 Community", "Simple XLSX exports for operational lists and lightweight reports.", "Простые XLSX-выгрузки для рабочих списков и легких отчетов."],
   ["pro", "cp_dashboard_pro", "Dashboard Pro", "Панель управления Pro", "Coming soon", "Скоро", "Pro", "Pro", "Odoo 19.0 Community", "Clean sales, invoices and inventory dashboards for Odoo 19 Community.", "Аккуратные панели продаж, счетов и склада для Odoo 19 Community."],
-  ["pro", "cp_migration_assistant_pro", "Migration Assistant Pro", "Помощник миграции Pro", "Coming soon", "Скоро", "Pro", "Pro", "Odoo 19.0 Community", "Migration readiness review before upgrading or moving an Odoo database.", "Проверка готовности перед обновлением или переносом базы Odoo."],
+  ["pro", "cp_migration_assistant_pro", "Migration Assistant Pro", "Помощник миграции Pro", "Available", "Доступен", "Pro", "Pro", "Odoo 19.0 Community", "Migration readiness review before upgrading or moving an Odoo database.", "Проверка готовности перед обновлением или переносом базы Odoo."],
   ["service", "custom_module_development", "Custom module development", "Разработка кастомных модулей", "Available by request", "По запросу", "Service", "Услуга", "Odoo 17.0-19.0", "Private Odoo modules for your business workflow.", "Приватные Odoo-модули под бизнес-процессы вашей компании."],
   ["service", "odoo_setup", "Odoo setup", "Настройка Odoo", "Available by request", "По запросу", "Service", "Услуга", "Odoo 19.0 focus", "Installation and configuration for stable Odoo environments.", "Установка и конфигурация стабильных Odoo-окружений."],
   ["service", "report_development", "Report development", "Разработка отчетов", "Available by request", "По запросу", "Service", "Услуга", "Odoo 17.0-19.0", "Custom sales, invoice, inventory and accounting reports.", "Кастомные отчеты по продажам, счетам, складу и бухгалтерии."]
@@ -1542,6 +1542,7 @@ function homePage(lang) {
           <div><dt>${lang === "ru" ? "Цена" : "Price"}</dt><dd id="dialogPrice"></dd></div>
         </dl>
         <p class="dialog-extra" id="dialogDetails"></p>
+        <div class="dialog-screenshots" id="dialogScreenshots" hidden></div>
         <div class="dialog-actions" id="dialogActions"></div>
       </div>
     </dialog>

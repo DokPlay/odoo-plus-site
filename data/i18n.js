@@ -1,12 +1,37 @@
 export const supportedLanguages = ["en", "ru"];
 export const defaultLanguage = "en";
 export const languageStorageKey = "cp_site_language_v2";
+const assetVersion = "20260619-pro-live-1";
 
 const catalogImage = (technicalName) =>
-  `/assets/img/catalog/${technicalName}-ru.png?v=20260619-seo-1`;
+  `/assets/img/catalog/${technicalName}-ru.png?v=${assetVersion}`;
 
 const catalogImageAlt = (title) =>
   `Превью ${title}`;
+
+const moduleScreenshot = (language, file) =>
+  `/assets/img/migration-assistant-pro/${language}/${file}.png?v=${assetVersion}`;
+
+const migrationAssistantScreenshotsRu = [
+  {
+    src: moduleScreenshot("ru", "01-full-scan-list"),
+    width: 2542,
+    height: 1213,
+    alt: "Помощник миграции Pro - список полных проверок"
+  },
+  {
+    src: moduleScreenshot("ru", "02-full-scan-form"),
+    width: 2540,
+    height: 1212,
+    alt: "Помощник миграции Pro - форма полной проверки"
+  },
+  {
+    src: moduleScreenshot("ru", "03-modules-dependencies"),
+    width: 2545,
+    height: 1218,
+    alt: "Помощник миграции Pro - модули и зависимости"
+  }
+];
 
 export const russianTimeZones = [
   "Europe/Kaliningrad",
@@ -131,7 +156,7 @@ export const uiText = {
     "catalog.price": "Price",
     "catalog.details": "Details",
     "catalog.paidNoteTitle": "Paid modules note",
-    "catalog.paidNoteBody": "Pro modules are coming soon. Boosty links will be added per module after release.",
+    "catalog.paidNoteBody": "Migration Assistant Pro is available now on Boosty. Other Pro modules will get their own links after release.",
     "roadmap.title": "Roadmap",
     "roadmap.body":
       "First stage: publish the website, keep all module cards visible, then replace planned cards as Free and Pro releases become ready.",
@@ -263,7 +288,7 @@ export const uiText = {
     "catalog.price": "Цена",
     "catalog.details": "Подробнее",
     "catalog.paidNoteTitle": "Важно о платных модулях",
-    "catalog.paidNoteBody": "Pro-модули скоро появятся. Boosty-ссылки будут добавляться отдельно для каждого модуля после релиза.",
+    "catalog.paidNoteBody": "Помощник миграции Pro уже доступен на Boosty. Остальные Pro-модули получат отдельные ссылки после релиза.",
     "roadmap.title": "План развития",
     "roadmap.body":
       "Первый этап: опубликовать сайт, показать все карточки модулей и постепенно обновлять их по мере готовности бесплатных и Pro-релизов.",
@@ -462,13 +487,14 @@ export const itemTranslations = {
     },
     cp_migration_assistant_pro: {
       title: "Помощник миграции Pro",
-      status: "Скоро",
+      status: "Доступен",
       badge: "Pro",
       version: "Odoo 19.0 Community",
       price: "$109",
       description: "Проверка готовности перед обновлением или переносом базы Odoo.",
       details: "Проверки готовности модулей, зависимостей и рискованных записей перед обновлением или переносом базы.",
-      ctaLabel: "Скоро"
+      ctaLabel: "Купить",
+      screenshots: migrationAssistantScreenshotsRu
     },
     cp_woo_connector_pro: {
       title: "WooCommerce коннектор Pro",
@@ -617,7 +643,7 @@ export const faqTranslations = {
     },
     {
       question: "Где будут платные Pro-модули?",
-      answer: "Pro-модули скоро появятся. Каждый выпущенный Pro-модуль получит отдельную Boosty-ссылку для доступа."
+      answer: "Помощник миграции Pro уже доступен на Boosty. Остальные Pro-модули получат отдельные Boosty-ссылки после релиза."
     },
     {
       question: "Это официальный проект Odoo?",

@@ -5,7 +5,7 @@ import {
   roadmapItems,
   services,
   siteLinks
-} from "../../data/modules.js?v=20260619-seo-1";
+} from "../../data/modules.js?v=20260619-pro-live-1";
 import {
   defaultLanguage,
   faqTranslations,
@@ -13,9 +13,9 @@ import {
   languageStorageKey,
   supportedLanguages,
   uiText
-} from "../../data/i18n.js?v=20260619-seo-1";
+} from "../../data/i18n.js?v=20260619-pro-live-1";
 
-const assetVersion = "20260619-seo-1";
+const assetVersion = "20260619-pro-live-1";
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -143,6 +143,29 @@ function catalogImagePath(item) {
 
 function cardImageMarkup(item) {
   return `<img class="card-image" src="${escapeHtml(item.image ?? catalogImagePath(item))}" width="1000" height="660" alt="${escapeHtml(item.imageAlt ?? `${item.title} preview`)}" loading="lazy" decoding="async">`;
+}
+
+function renderDialogScreenshots(item) {
+  const gallery = dialog.querySelector("#dialogScreenshots");
+  if (!gallery) return;
+
+  const screenshots = Array.isArray(item.screenshots)
+    ? item.screenshots.filter((screenshot) => screenshot?.src)
+    : [];
+
+  gallery.hidden = screenshots.length === 0;
+  gallery.innerHTML = screenshots
+    .map((screenshot, index) => {
+      const alt = screenshot.alt ?? `${item.title} screenshot ${index + 1}`;
+      const width = Number.isFinite(Number(screenshot.width)) ? ` width="${escapeHtml(screenshot.width)}"` : "";
+      const height = Number.isFinite(Number(screenshot.height)) ? ` height="${escapeHtml(screenshot.height)}"` : "";
+      return `
+        <a class="dialog-screenshot-link" href="${escapeHtml(screenshot.src)}" target="_blank" rel="noopener noreferrer">
+          <img src="${escapeHtml(screenshot.src)}" alt="${escapeHtml(alt)}"${width}${height} loading="eager" decoding="async">
+        </a>
+      `;
+    })
+    .join("");
 }
 
 function cardTemplate(item, index) {
@@ -378,6 +401,7 @@ function openDetails(item) {
   dialog.querySelector("#dialogStatus").textContent = item.status;
   dialog.querySelector("#dialogPrice").textContent = item.price;
   dialog.querySelector("#dialogDetails").textContent = item.details;
+  renderDialogScreenshots(item);
   dialog.querySelector("#dialogActions").innerHTML = `
     ${ctaMarkup(item)}
     <button class="details-button js-dialog-close" type="button">${escapeHtml(getNestedText("dialog.close"))}</button>

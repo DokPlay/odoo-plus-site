@@ -2,12 +2,15 @@ export const siteLinks = {
   githubFreeModules: "https://github.com/DokPlay/odoo-community-plus-addons",
   githubModuleHealthChecker: "https://github.com/DokPlay/odoo-community-plus-addons/tree/19/cp_module_health_checker",
   boostyProfile: "https://boosty.to/dokplaytv",
+  boostyMigrationAssistantPro: "https://boosty.to/dokplaytv/posts/52be7a2e-c232-43c4-890c-36bbea51fce8?share=post_link",
   email: "mailto:serrggeejjj@gmail.com",
   emailSetup: "mailto:serrggeejjj@gmail.com?subject=Odoo%20custom%20module%20request",
   linkedin: "https://www.linkedin.com/in/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D1%81%D0%BD%D0%B0%D1%82%D0%BA%D0%B8%D0%BD-85563a3ab/",
   telegram: "https://t.me/example",
   siteUrl: "https://www.odoocustom.online/"
 };
+
+const assetVersion = "20260619-pro-live-1";
 
 const githubModuleUrl = (technicalName) => {
   if (technicalName === "cp_module_health_checker") {
@@ -20,13 +23,55 @@ const boostyPostUrl = (slug) =>
   `${siteLinks.boostyProfile}/posts/${slug}`;
 
 const catalogImage = (technicalName) =>
-  `/assets/img/catalog/${technicalName}.png?v=20260619-seo-1`;
+  `/assets/img/catalog/${technicalName}.png?v=${assetVersion}`;
 
 const catalogImageAlt = (title) =>
   `${title} preview`;
 
 const mailtoSubject = (subject) =>
   `${siteLinks.email}?subject=${encodeURIComponent(subject)}`;
+
+const moduleScreenshot = (language, file) =>
+  `/assets/img/migration-assistant-pro/${language}/${file}.png?v=${assetVersion}`;
+
+const migrationAssistantScreenshots = [
+  {
+    src: moduleScreenshot("en", "01-full-scan-list"),
+    width: 2539,
+    height: 1202,
+    alt: "Migration Assistant Pro full scan list"
+  },
+  {
+    src: moduleScreenshot("en", "02-full-scan-form"),
+    width: 2545,
+    height: 1217,
+    alt: "Migration Assistant Pro full scan form"
+  },
+  {
+    src: moduleScreenshot("en", "03-modules-dependencies"),
+    width: 2546,
+    height: 1208,
+    alt: "Migration Assistant Pro modules and dependencies"
+  },
+  {
+    src: moduleScreenshot("en", "04-module-risks"),
+    width: 2549,
+    height: 1215,
+    alt: "Migration Assistant Pro module risks"
+  },
+  {
+    src: moduleScreenshot("en", "05-reports"),
+    width: 2548,
+    height: 1219,
+    alt: "Migration Assistant Pro reports"
+  },
+  {
+    src: moduleScreenshot("en", "06-rules"),
+    width: 2543,
+    height: 879,
+    alt: "Migration Assistant Pro rules"
+  }
+];
 
 export const freeModules = [
   {
@@ -253,15 +298,15 @@ export const proModules = [
     type: "pro",
     technicalName: "cp_migration_assistant_pro",
     title: "Migration Assistant Pro",
-    status: "Coming soon",
+    status: "Available",
     badge: "Pro",
     version: "Odoo 19.0 Community",
     price: "$109",
     description: "Migration readiness review before upgrading or moving an Odoo database.",
     details: "Readiness checks for modules, dependencies and risky records before upgrades or database moves.",
-    ctaLabel: "Coming soon",
-    ctaUrl: boostyPostUrl("migration-assistant-pro"),
-    disabled: true
+    ctaLabel: "Buy",
+    ctaUrl: siteLinks.boostyMigrationAssistantPro,
+    screenshots: migrationAssistantScreenshots
   },
   {
     type: "pro",
@@ -458,7 +503,7 @@ export const faqItems = [
   },
   {
     question: "Where will paid Pro modules be available?",
-    answer: "Pro modules are coming soon. Each released Pro module will get its own Boosty access link."
+    answer: "Migration Assistant Pro is available on Boosty now. Other Pro modules will get their own Boosty access links after release."
   },
   {
     question: "Is this an official Odoo project?",

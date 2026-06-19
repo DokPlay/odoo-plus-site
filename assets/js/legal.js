@@ -2,7 +2,7 @@ import {
   defaultLanguage,
   languageStorageKey,
   supportedLanguages
-} from "../../data/i18n.js?v=20260619-seo-1";
+} from "../../data/i18n.js?v=20260619-pro-live-1";
 
 const pageText = {
   en: {
